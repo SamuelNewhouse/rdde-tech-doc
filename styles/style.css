@@ -3,17 +3,23 @@ header, section, footer {
     max-width: 1024px;
 }
 
-header {
-    padding: 0 5px;
-    border: 2px solid black;
-}
-
-h2 {
+#hello {
     max-width: 100%;
-    animation: h2-pulse-width 2s ease-in-out infinite alternate;
+    animation: pulse-width-100-10 2s ease-in-out infinite alternate;
 }
 
-@keyframes h2-pulse-width{
+@keyframes pulse-width-100-10{
     0% {max-width: 100%;}
-    100% {max-width: 10%;}
+    100% {max-width: 3%;}
+}
+
+#right-section > div {
+    float: right;
+    width: 100%;
+    animation: pulse-w-100-10 2s ease-in-out infinite alternate;
+}
+
+@keyframes pulse-w-100-10{
+    0% {width: 100%;}
+    100% {width: 5%;}
 }
