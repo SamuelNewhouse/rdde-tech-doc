@@ -1,0 +1,19 @@
+header, section, footer {
+    margin: auto;
+    max-width: 1024px;
+}
+
+header {
+    padding: 0 5px;
+    border: 2px solid black;
+}
+
+h2 {
+    max-width: 100%;
+    animation: h2-pulse-width 2s ease-in-out infinite alternate;
+}
+
+@keyframes h2-pulse-width{
+    0% {max-width: 100%;}
+    100% {max-width: 10%;}
+}
