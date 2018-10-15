@@ -3,23 +3,34 @@ header, section, footer {
     max-width: 1024px;
 }
 
-#hello {
-    max-width: 100%;
-    animation: pulse-width-100-10 2s ease-in-out infinite alternate;
+.collapse-left {
+    display: flex;
+    justify-content: flex-start;
+    font-size: 1.5em;
+    font-weight: 700;
 }
 
-@keyframes pulse-width-100-10{
-    0% {max-width: 100%;}
-    100% {max-width: 3%;}
-}
-
-#right-section > div {
-    float: right;
+.collapse-left > .rdde {
+    background-color: rgb(245, 240, 220);
     width: 100%;
-    animation: pulse-w-100-10 2s ease-in-out infinite alternate;
+    animation: pulse-width-100-0 2s ease-in-out infinite alternate;
 }
 
-@keyframes pulse-w-100-10{
+.collapse-right {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 1.5em;
+    font-weight: 700;
+}
+
+.collapse-right > .rdde {
+    background-color: rgb(226, 245, 220);
+    width: 100%;
+    animation: pulse-width-100-0 2s ease-in-out infinite alternate;
+}
+
+
+@keyframes pulse-width-100-0{
     0% {width: 100%;}
-    100% {width: 5%;}
+    100% {width: 0%;}
 }
