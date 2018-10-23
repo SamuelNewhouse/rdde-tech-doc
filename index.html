@@ -125,9 +125,37 @@ for (let i = 1; i &lt; numParts; i++) {
 	<p>Notice the loop starts at i=1. It's unnecessary to calculate i=0 because it will always result in a zero left margin. Setting a zero left margin is the same as not setting a left margin since flex-start alignment is being used.</p>
 	</section>
 
+	<section>
+		<h2>Blocking on Margin</h2>
+		<div class="rdde rdde-no-block example block-compare">
+			<span>Test</span>
 			<span>for</span>
-			<span>asking!</span>
+			<span>margin</span>
+			<span>blocking</span>
+			<span>here.</span>
 		</div>
+		<p>One possible issue with this method is that elements can receive negative margins if the container element becomes small enough. This is especially a problem if an element other than the first one is much large than the first one. It most cases, it would probably be better to have elements stop at zero left margin rather than go past that into the negatives. Luckily, this is fixed with a simple addition to the for loop...</p>
+<pre><code>for (let i = 1; i &lt; numParts; i++) {
+	let marginLeft = splitWidth * i + firstOffset - parts[i].clientWidth / 2;
+	marginLeft = Math.max(0, marginLeft);
+	parts[i].style.marginLeft = marginLeft + "px";
+}</code></pre>
+	<div class="rdde example block-compare">
+		<span>Test</span>
+		<span>for</span>
+		<span>margin</span>
+		<span>blocking</span>
+		<span>here.</span>
+		</div>
+	<p>That solves the problem, but it might be good to include an option for turning this blocking off. Checking for the existence of a particular class on the container element would do the trick.</p>
+<pre><code>var bBlock = !box.classList.contains("rdde-no-block");
+for (let i = 1; i &lt; numParts; i++) {
+	let marginLeft = splitWidth * i + firstOffset - parts[i].clientWidth / 2;
+	if (bBlock)
+		marginLeft = Math.max(0, marginLeft);
+	parts[i].style.marginLeft = marginLeft + "px";
+}</code></pre>
+	<p>Since the default case will be to block on the margin, the optional case must be to explicitly not block.</p>
 	</section>
 
 
