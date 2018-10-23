@@ -3,7 +3,7 @@ html {
     font-size: 110%;
 }
 header, section, footer {
-    margin: auto;
+    margin: 10px auto;
     max-width: 1024px;
 }
 
