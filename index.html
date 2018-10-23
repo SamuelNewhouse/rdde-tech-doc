@@ -56,11 +56,36 @@
 		<p>There is no need to worry about the height of the container element or the heights of the inner elements. Flexbox is used to properly distribute the elements vertically by using flex-direction: column and justify-content: space-between. This effectively automates the slope of the diagonal without having to do any additional JavaScript calculations.</p>
 	</section>
 
-	<section class="collapse-right">
-		<div class="rdde rdde-up rdde-right-basis">
-			<span>We're</span>
-			<span>great.</span>
-			<span>Thanks</span>
+	<section>
+		<h2>Vertical Positioning</h2>
+		<p>Keep in mind that ALL vertical positioning is determined entirely by using flexbox. The vertical start and end of the distribution diagonal, as well as each inner element's vertical position are all automatically handled properly by simply using a flexbox with flex-direction:column and justify-content: space-between. The only thing that will need to be implemented in JavaScript is the horizontal positioning.</p>
+	</section>
+
+	<section>
+		<h2>Horizontal Spacing</h2>
+		<p>It's easy to say that each element's center should fall on the distribution diagonal, but how is that done? One idea is to set a separate left margin for each inner element in a way that makes all the inner elements line up diagonally. This requires a separate calculation for each inner element based on several factors...</p>
+		<ol>
+			<li>Width of outer container element</li>
+			<li>Horizontal size of the distribution diagonal (distance between first and last element centers)</li>
+			<li>Number of inner elements</li>
+			<li>Width of the individual element being aligned</li>
+		</ol>
+		<p>Here is a diagram with the first three of those considerations put into relationship with each other.</p>
+		<img src="images/horizontal-positioning.svg">
+		<ol>
+			<li>box.clientWidth = Width of outer container element</li>
+			<li>innerWidth = Horizontal size of the distribution diagonal</li>
+			<li>numParts = Number of inner elements</li>
+		</ol>
+		<p>box.clientWidth is necessary for calculating innerWidth. Despite the diagram's appearance, the inner elements are not automatically spaced apart so that the last element's center falls in its proper place. Instead, we have to calculate innerStart, innerEnd and innerWidth by doing the following...</p>
+<pre><code>// parts is an array of all the inner elements.
+innerStart = parts[0].clientWidth / 2;
+innerEnd = box.clientWidth - (parts[numParts - 1].clientWidth / 2);
+innerWidth = innerEnd - innerStart</code></pre>
+		<p>With innerWidth and numParts known, it's possible to calculate the horizontal spacing between element centers. This is the splitWidth and can be calculated by dividing innerWidth by one less than numParts.</p>
+<pre><code>splitWidth = innerWidth / (numParts - 1);</code></pre>
+	</section>
+
 			<span>for</span>
 			<span>asking!</span>
 		</div>
