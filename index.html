@@ -21,13 +21,13 @@
 	<section>
 		<h2>Introduction</h2>
 		<div class="collapse-left example">
-		<div class="rdde">
-			<span>Hello</span>
-			<span>world.</span>
-			<span>How</span>
-			<span>are</span>
-			<span>you?</span>
-		</div>
+			<div class="rdde">
+				<span>Hello</span>
+				<span>world.</span>
+				<span>How</span>
+				<span>are</span>
+				<span>you?</span>
+			</div>
 		</div>
 		<div>
 			<p>This document explains how to implement responsive diagonally distributed elements using JavaScript.
@@ -146,7 +146,7 @@ for (let i = 1; i &lt; numParts; i++) {
 		<span>margin</span>
 		<span>blocking</span>
 		<span>here.</span>
-		</div>
+	</div>
 	<p>That solves the problem, but it might be good to include an option for turning this blocking off. Checking for the existence of a particular class on the container element would do the trick.</p>
 <pre><code>var bBlock = !box.classList.contains("rdde-no-block");
 for (let i = 1; i &lt; numParts; i++) {
@@ -198,6 +198,12 @@ for (let i = 1; i &lt; numParts; i++) {
 
 		<p>javascript-detect-element-resize.js adds the functions addResizeListener and removeResizeListener to the window object. If those functions don't exist on the window object, it's safe to assume javascript-detect-element-resize.js isn't loaded.</p>
 		<p></p>
+	</section>
+
+
+	<section>
+	<p>The differences between rdde-left-basis and rdde-right-basis are only noticeable when the container element either becomes small enough for elements to cross the basis margin or the container element width is smoothly changing.</p>
+	<p>If the container may shrink to the point that it can't fully contain the inner elements, it's important to decide on a basis margin. Even if blocking is turned off, the direction the elements slant will be effected. For example...<p>
 	</section>
 
 	<footer>Made by
