@@ -48,6 +48,12 @@
 		</div>
 	</section>
 
+	<section>
+		<h2>The Basic Concept</h2>
+		<p>The most basic situation is aligning a set of elements on a downhill diagonal starting from the left margin.</p>
+		<img src="images/basic-plan.svg">
+		<p>The inner element centers are spaced equidistant horizontally and the center of each element is on the distribution diagonal. The distribution diagonal is more of a conceptual aid than something fully calculated. Only the horizontal starting and ending point of the diagonal, relative to the left margin, are needed to begin with. These are determined by setting the starting horizontal position to the horizontal center of the first element and the ending horizontal position to the horizontal center of the last element. This will create a smoother and more consistent diagonal alignment that simply going from corner to corner of the container element.</p>
+		<p>There is no need to worry about the height of the container element or the heights of the inner elements. Flexbox is used to properly distribute the elements vertically by using flex-direction: column and justify-content: space-between. This effectively automates the slope of the diagonal without having to do any additional JavaScript calculations.</p>
 	</section>
 
 	<section class="collapse-right">
