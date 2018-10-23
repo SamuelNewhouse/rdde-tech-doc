@@ -29,6 +29,11 @@ img {
     max-height: 100%;
 }
 
+.example {
+    font-size: 1.2em;
+    font-weight: 700;
+}
+
 .collapse-left {
     display: flex;
     justify-content: flex-start;
