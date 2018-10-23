@@ -86,6 +86,45 @@ innerWidth = innerEnd - innerStart</code></pre>
 <pre><code>splitWidth = innerWidth / (numParts - 1);</code></pre>
 	</section>
 
+	<section>
+		<h2>Calculating the Margins</h2>
+		<p>Now look at how to use splitWidth with individual element widths to set the left margins...</p>
+		<img src="images/horizontal-positioning2.svg">
+		<p>There are several things added here that need explanation...</p>
+		<p><strong>firstOffset:</strong> It's exactly the same value as innerStart. That may seem pointless, but it's to make explicit a meaningful contrast between itself and lastOffset.</p>
+		<p><strong>lastOffset:</strong> NOT the same value as innerEnd. innerEnd is the distance from the left margin to where the horizontal center of the last element will be. lastOffset is half the width of the last element while firstOffset is half the width of the first element. This becomes more important in future examples.</p>
+		<p><strong>align-items="flex-start":</strong> This is critical. Since the outer container is a flex box, the default alignment is "stretch". Using that default alignment would prevent properly using left margins as a method for aligning items diagonally. By setting the alignment to flex-start, all the items will line up on the left side of the outer container. Then, the left margins of each element can be set to push them away from the left side as needed.</p>
+		<p>Now on to the marginLeft calculations...</p>
+		<p><strong>splitWidth * i:</strong> One splitWidth worth of distance needs to be added for each inner element so multiplying by an index counter works well here.</p>
+		<p><strong>+ firstOffset:</strong> Adding firstOffset pushes each use of splitWidth over so the splitWidth distribution starts where it's supposed to (center of the first element).</p>
+		<p><strong>- parts[i].clientWidth / 2:</strong> This is where each individual element width is taken into account. Even if the elements are different widths, this maintains every element's center position on the distribution diagonal.</p>
+		<p>In summary, the equivalent JavaScript so far would be...</p>
+<pre><code>// box is the container element for the parts
+box.style.display = "flex";
+box.style.flexDirection = "column";
+box.style.justifyContent = "space-between";
+box.style.alignItems = "flex-start";
+
+var parts = box.children;
+var numParts = parts.length
+
+var firstOffset = parts[0].clientWidth / 2;
+var lastOffset = parts[numParts - 1].clientWidth / 2;
+
+var innerStart = firstOffset;
+var innerEnd = box.clientWidth - lastOffset;
+
+var innerWidth = innerEnd - innerStart;
+var splitWidth = innerWidth / (numParts - 1);
+
+// It's safe to skip i=0
+for (let i = 1; i &lt; numParts; i++) {
+	let marginLeft = splitWidth * i + firstOffset - parts[i].clientWidth / 2;
+	parts[i].style.marginLeft = marginLeft + "px";
+}</code></pre>
+	<p>Notice the loop starts at i=1. It's unnecessary to calculate i=0 because it will always result in a zero left margin. Setting a zero left margin is the same as not setting a left margin since flex-start alignment is being used.</p>
+	</section>
+
 			<span>for</span>
 			<span>asking!</span>
 		</div>
