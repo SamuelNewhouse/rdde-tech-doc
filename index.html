@@ -18,7 +18,9 @@
 		by Samuel Newhouse
 	</header>
 
-	<section class="collapse-left">
+	<section>
+		<h2>Introduction</h2>
+		<div class="collapse-left example">
 		<div class="rdde">
 			<span>Hello</span>
 			<span>world.</span>
@@ -26,6 +28,26 @@
 			<span>are</span>
 			<span>you?</span>
 		</div>
+		</div>
+		<div>
+			<p>This document explains how to implement responsive diagonally distributed elements using JavaScript.
+				To simplify things, <a href="https://github.com/sdecima/javascript-detect-element-resize">Detect Element Resize
+				by Sebastian Decima</a> will be used to detect any resize on elements containing elements to be distributed. After finishing,
+				you will have a replica of <a href="">Responsive Diagonally Distributed Elements by Samuel Newhouse</a> created from the ground-up
+				with an understanding of how it works.</p>
+			<p>This implementaion relies on setting class names on a container element containing the elements to be
+				diagonally distributed. The class names will set the rules for:</p>
+				<ol>
+					<li>The angle of distribution (diagonally down or up)</li>
+					<li>The basis for alignment (left or right margin)</li>
+					<li>Blocking or not blocking elements from crossing the basis margin.</li>
+				</ol>
+			<p>More options could be added to increase sophistication, but these three offer a solid starting point for understanding
+				some of the complicating factors to consider when trying to create RDDE.
+			</p>
+		</div>
+	</section>
+
 	</section>
 
 	<section class="collapse-right">
