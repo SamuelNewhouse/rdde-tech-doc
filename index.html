@@ -179,6 +179,27 @@ for (let i = 1; i &lt; numParts; i++) {
 		<p>rdde-down with rdde-left-basis is essentially the concept and code that has been covered so far, along with rdde-no-block. With these as a starting point, now might be a good time to implement the more general foundations for the code. Once that is done, the other options are fairly easy to add later.</p>
 	</section>
 
+	<section>
+		<h2>General Framework and Setup</h2>
+		<p>Now that the general concepts and goals have been established, it's time to start creating RDDE as its own JavaScript file to be included in HTML. javascript-detect-element-resize.js needs to load before responsive-diagonally-distributed-elements.js. In this document, they are simply included in order right before the closing tag for the body...</p>
+<pre><code>&lt;/footer&gt;
+
+  &lt;script src=&quot;scripts/javascript-detect-element-resize.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;scripts/responsive-diagonally-distributed-elements.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;</code></pre>
+ <p>Additionally, the RDDE code needs to wait for the DOM content to be loaded before doing anything. To ensure all of this is done correctly, the following code waits for DOM content to finish loading, checks for the existence of javascript-detect-element-resize.js, and provides an error message and a suggested link if something is wrong.</p>
+<pre><code>document.addEventListener(&quot;DOMContentLoaded&quot;, function () {
+  if (typeof window.addResizeListener !== &quot;function&quot; || typeof window.removeResizeListener !== &quot;function&quot;) {
+    console.log(&quot;ERROR: javascript-detect-element-resize.js is required for diagonally-distributed-elements.js&quot;);
+    console.log(&quot;See: https://github.com/sdecima/javascript-detect-element-resize&quot;);
+    return;
+  }
+});</code></pre>
+
+		<p>javascript-detect-element-resize.js adds the functions addResizeListener and removeResizeListener to the window object. If those functions don't exist on the window object, it's safe to assume javascript-detect-element-resize.js isn't loaded.</p>
+		<p></p>
+	</section>
+
 	<footer>Made by
 		<a href="https://github.com/SamuelNewhouse" target="_blank">Samuel Newhouse</a>
 	</footer>
