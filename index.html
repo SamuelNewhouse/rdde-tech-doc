@@ -14,23 +14,196 @@
 
 <body>
 	<header>
-		<h1>Diagonally Distributed Elements</h1>
-		<h2 class="ddt-box">
-			<span>Hello</span>
-			<span>world.</span>
-			<span>How</span>			
-			<span>are</span>
-			<span>you?</span>			
-		</h1>
+		<h1>Responsive Diagonally Distributed Elements</h1>
+		by Samuel Newhouse
 	</header>
 
 	<section>
-		<h2 class="ddt-box">
-			<span>Hello</span>
-			<span>world.</span>			
-			<span>are</span>
-			<span>you?</span>			
-		</h1>		
+		<h2>Introduction</h2>
+		<div class="collapse-left example">
+			<div class="rdde">
+				<span>Hello</span>
+				<span>world.</span>
+				<span>How</span>
+				<span>are</span>
+				<span>you?</span>
+			</div>
+		</div>
+		<div>
+			<p>This document explains how to implement responsive diagonally distributed elements using JavaScript.
+				To simplify things, <a href="https://github.com/sdecima/javascript-detect-element-resize">Detect Element Resize
+				by Sebastian Decima</a> will be used to detect any resize on elements containing elements to be distributed. After finishing,
+				you will have a replica of <a href="">Responsive Diagonally Distributed Elements by Samuel Newhouse</a> created from the ground-up
+				with an understanding of how it works.</p>
+			<p>This implementaion relies on setting class names on a container element containing the elements to be
+				diagonally distributed. The class names will set the rules for:</p>
+				<ol>
+					<li>The angle of distribution (diagonally down or up)</li>
+					<li>The basis for alignment (left or right margin)</li>
+					<li>Blocking or not blocking elements from crossing the basis margin.</li>
+				</ol>
+			<p>More options could be added to increase sophistication, but these three offer a solid starting point for understanding
+				some of the complicating factors to consider when trying to create RDDE.
+			</p>
+		</div>
+	</section>
+
+	<section>
+		<h2>The Basic Concept</h2>
+		<p>The most basic situation is aligning a set of elements on a downhill diagonal starting from the left margin.</p>
+		<img src="images/basic-plan.svg">
+		<p>The inner element centers are spaced equidistant horizontally and the center of each element is on the distribution diagonal. The distribution diagonal is more of a conceptual aid than something fully calculated. Only the horizontal starting and ending point of the diagonal, relative to the left margin, are needed to begin with. These are determined by setting the starting horizontal position to the horizontal center of the first element and the ending horizontal position to the horizontal center of the last element. This will create a smoother and more consistent diagonal alignment that simply going from corner to corner of the container element.</p>
+		<p>There is no need to worry about the height of the container element or the heights of the inner elements. Flexbox is used to properly distribute the elements vertically by using flex-direction: column and justify-content: space-between. This effectively automates the slope of the diagonal without having to do any additional JavaScript calculations.</p>
+	</section>
+
+	<section>
+		<h2>Vertical Positioning</h2>
+		<p>Keep in mind that ALL vertical positioning is determined entirely by using flexbox. The vertical start and end of the distribution diagonal, as well as each inner element's vertical position are all automatically handled properly by simply using a flexbox with flex-direction:column and justify-content: space-between. The only thing that will need to be implemented in JavaScript is the horizontal positioning.</p>
+	</section>
+
+	<section>
+		<h2>Horizontal Spacing</h2>
+		<p>It's easy to say that each element's center should fall on the distribution diagonal, but how is that done? One idea is to set a separate left margin for each inner element in a way that makes all the inner elements line up diagonally. This requires a separate calculation for each inner element based on several factors...</p>
+		<ol>
+			<li>Width of outer container element</li>
+			<li>Horizontal size of the distribution diagonal (distance between first and last element centers)</li>
+			<li>Number of inner elements</li>
+			<li>Width of the individual element being aligned</li>
+		</ol>
+		<p>Here is a diagram with the first three of those considerations put into relationship with each other.</p>
+		<img src="images/horizontal-positioning.svg">
+		<ol>
+			<li>box.clientWidth = Width of outer container element</li>
+			<li>innerWidth = Horizontal size of the distribution diagonal</li>
+			<li>numParts = Number of inner elements</li>
+		</ol>
+		<p>box.clientWidth is necessary for calculating innerWidth. Despite the diagram's appearance, the inner elements are not automatically spaced apart so that the last element's center falls in its proper place. Instead, we have to calculate innerStart, innerEnd and innerWidth by doing the following...</p>
+<pre><code>// parts is an array of all the inner elements.
+innerStart = parts[0].clientWidth / 2;
+innerEnd = box.clientWidth - (parts[numParts - 1].clientWidth / 2);
+innerWidth = innerEnd - innerStart</code></pre>
+		<p>With innerWidth and numParts known, it's possible to calculate the horizontal spacing between element centers. This is the splitWidth and can be calculated by dividing innerWidth by one less than numParts.</p>
+<pre><code>splitWidth = innerWidth / (numParts - 1);</code></pre>
+	</section>
+
+	<section>
+		<h2>Calculating the Margins</h2>
+		<p>Now look at how to use splitWidth with individual element widths to set the left margins...</p>
+		<img src="images/horizontal-positioning2.svg">
+		<p>There are several things added here that need explanation...</p>
+		<p><strong>firstOffset:</strong> It's exactly the same value as innerStart. That may seem pointless, but it's to make explicit a meaningful contrast between itself and lastOffset.</p>
+		<p><strong>lastOffset:</strong> NOT the same value as innerEnd. innerEnd is the distance from the left margin to where the horizontal center of the last element will be. lastOffset is half the width of the last element while firstOffset is half the width of the first element. This becomes more important in future examples.</p>
+		<p><strong>align-items="flex-start":</strong> This is critical. Since the outer container is a flex box, the default alignment is "stretch". Using that default alignment would prevent properly using left margins as a method for aligning items diagonally. By setting the alignment to flex-start, all the items will line up on the left side of the outer container. Then, the left margins of each element can be set to push them away from the left side as needed.</p>
+		<p>Now on to the marginLeft calculations...</p>
+		<p><strong>splitWidth * i:</strong> One splitWidth worth of distance needs to be added for each inner element so multiplying by an index counter works well here.</p>
+		<p><strong>+ firstOffset:</strong> Adding firstOffset pushes each use of splitWidth over so the splitWidth distribution starts where it's supposed to (center of the first element).</p>
+		<p><strong>- parts[i].clientWidth / 2:</strong> This is where each individual element width is taken into account. Even if the elements are different widths, this maintains every element's center position on the distribution diagonal.</p>
+		<p>In summary, the equivalent JavaScript so far would be...</p>
+<pre><code>// box is the container element for the parts
+box.style.display = "flex";
+box.style.flexDirection = "column";
+box.style.justifyContent = "space-between";
+box.style.alignItems = "flex-start";
+
+var parts = box.children;
+var numParts = parts.length
+
+var firstOffset = parts[0].clientWidth / 2;
+var lastOffset = parts[numParts - 1].clientWidth / 2;
+
+var innerStart = firstOffset;
+var innerEnd = box.clientWidth - lastOffset;
+
+var innerWidth = innerEnd - innerStart;
+var splitWidth = innerWidth / (numParts - 1);
+
+// It's safe to skip i=0
+for (let i = 1; i &lt; numParts; i++) {
+	let marginLeft = splitWidth * i + firstOffset - parts[i].clientWidth / 2;
+	parts[i].style.marginLeft = marginLeft + "px";
+}</code></pre>
+	<p>Notice the loop starts at i=1. It's unnecessary to calculate i=0 because it will always result in a zero left margin. Setting a zero left margin is the same as not setting a left margin since flex-start alignment is being used.</p>
+	</section>
+
+	<section>
+		<h2>Blocking on Margin</h2>
+		<div class="rdde rdde-no-block example block-compare">
+			<span>Test</span>
+			<span>for</span>
+			<span>margin</span>
+			<span>blocking</span>
+			<span>here.</span>
+		</div>
+		<p>One possible issue with this method is that elements can receive negative margins if the container element becomes small enough. This is especially a problem if an element other than the first one is much large than the first one. It most cases, it would probably be better to have elements stop at zero left margin rather than go past that into the negatives. Luckily, this is fixed with a simple addition to the for loop...</p>
+<pre><code>for (let i = 1; i &lt; numParts; i++) {
+	let marginLeft = splitWidth * i + firstOffset - parts[i].clientWidth / 2;
+	marginLeft = Math.max(0, marginLeft);
+	parts[i].style.marginLeft = marginLeft + "px";
+}</code></pre>
+	<div class="rdde example block-compare">
+		<span>Test</span>
+		<span>for</span>
+		<span>margin</span>
+		<span>blocking</span>
+		<span>here.</span>
+	</div>
+	<p>That solves the problem, but it might be good to include an option for turning this blocking off. Checking for the existence of a particular class on the container element would do the trick.</p>
+<pre><code>var bBlock = !box.classList.contains("rdde-no-block");
+for (let i = 1; i &lt; numParts; i++) {
+	let marginLeft = splitWidth * i + firstOffset - parts[i].clientWidth / 2;
+	if (bBlock)
+		marginLeft = Math.max(0, marginLeft);
+	parts[i].style.marginLeft = marginLeft + "px";
+}</code></pre>
+	<p>Since the default case will be to block on the margin, the optional case must be to explicitly not block.</p>
+	</section>
+
+	<section>
+		<h2>Container Element Classes</h2>
+		<p>The previous section introduced the class "rdde-no-block". As mentioned at the very beginning, RDDE uses classes on elements to determine what elements are RDDE elements and what the settings will be.</p>
+<pre><code>&lt;div class=&quot;rdde&quot;&gt;
+	&lt;span&gt;A&lt;/span&gt;
+	&lt;span&gt;B&lt;/span&gt;
+	&lt;span&gt;C&lt;/span&gt;
+&lt;/div&gt;
+</code></pre>
+		<p>The above code demonstrates the idea. Simplying giving the outter div the class rdde will allow it to diagonally distribute the three inside spans. Here are the classes covered in this document...</p>
+		<table>
+			<tr><td><strong>rdde</strong> <em>(required)</em>:</td> <td>set an outer element as a container box</td></tr>
+			<tr><td><strong>rdde-down</strong> <em>(default)</em>:</td> <td>align inner elements diagonally down</td></tr>
+			<tr><td><strong>rdde-up</strong>:</td> <td>align inner elements diagonally up</td></tr>
+			<tr><td><strong>rdde-left-basis</strong> <em>(default)</em>:</td> <td>calculate inner elements from left and block on left margin</td></tr>
+			<tr><td><strong>rdde-right-basis</strong>:</td> <td>calculate inner elements from right and block on right margin</td></tr>
+			<tr><td><strong>rdde-no-block</strong>:</td> <td>turn off blocking so elements can cross basis margin</td></tr>
+		</table>
+		<p>rdde-down with rdde-left-basis is essentially the concept and code that has been covered so far, along with rdde-no-block. With these as a starting point, now might be a good time to implement the more general foundations for the code. Once that is done, the other options are fairly easy to add later.</p>
+	</section>
+
+	<section>
+		<h2>General Framework and Setup</h2>
+		<p>Now that the general concepts and goals have been established, it's time to start creating RDDE as its own JavaScript file to be included in HTML. javascript-detect-element-resize.js needs to load before responsive-diagonally-distributed-elements.js. In this document, they are simply included in order right before the closing tag for the body...</p>
+<pre><code>&lt;/footer&gt;
+
+  &lt;script src=&quot;scripts/javascript-detect-element-resize.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;scripts/responsive-diagonally-distributed-elements.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;</code></pre>
+ <p>Additionally, the RDDE code needs to wait for the DOM content to be loaded before doing anything. To ensure all of this is done correctly, the following code waits for DOM content to finish loading, checks for the existence of javascript-detect-element-resize.js, and provides an error message and a suggested link if something is wrong.</p>
+<pre><code>document.addEventListener(&quot;DOMContentLoaded&quot;, function () {
+  if (typeof window.addResizeListener !== &quot;function&quot; || typeof window.removeResizeListener !== &quot;function&quot;) {
+    console.log(&quot;ERROR: javascript-detect-element-resize.js is required for diagonally-distributed-elements.js&quot;);
+    console.log(&quot;See: https://github.com/sdecima/javascript-detect-element-resize&quot;);
+    return;
+  }
+});</code></pre>
+
+		<p>javascript-detect-element-resize.js adds the functions addResizeListener and removeResizeListener to the window object. If those functions don't exist on the window object, it's safe to assume javascript-detect-element-resize.js isn't loaded.</p>
+		<p></p>
+	</section>
+
+
+	<section>
+	<p>The differences between rdde-left-basis and rdde-right-basis are only noticeable when the container element either becomes small enough for elements to cross the basis margin or the container element width is smoothly changing.</p>
+	<p>If the container may shrink to the point that it can't fully contain the inner elements, it's important to decide on a basis margin. Even if blocking is turned off, the direction the elements slant will be effected. For example...<p>
 	</section>
 
 	<footer>Made by
@@ -38,7 +211,7 @@
 	</footer>
 
 	<script src="scripts/javascript-detect-element-resize.js"></script>
-	<script src="scripts/diagonally-distributed-elements.js"></script>
+	<script src="scripts/responsive-diagonally-distributed-elements.js"></script>
 </body>
 
 </html>
