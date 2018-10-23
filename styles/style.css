@@ -24,6 +24,11 @@ pre {
     white-space: pre-wrap;
 }
 
+img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
 .collapse-left {
     display: flex;
     justify-content: flex-start;
