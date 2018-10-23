@@ -34,6 +34,14 @@ img {
     font-weight: 700;
 }
 
+.block-compare {
+    border: 1px solid #aaa;
+    padding: 5px;
+    margin-left: 50px;
+    max-width: 30px;
+}
+
+
 .collapse-left {
     display: flex;
     justify-content: flex-start;
