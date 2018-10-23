@@ -10,6 +10,11 @@ h2, h3 {
     color: #a55;
 }
 
+section {
+    padding: 0 4px;
+    border: 2px solid black;
+}
+
 
 .collapse-left {
     display: flex;
