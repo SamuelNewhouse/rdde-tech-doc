@@ -5,14 +5,12 @@
  * the first element to the center of the last element. An outer element must be specified to
  * determine the left-most and right-most positions. When set to align diagonally down, the first
  * element is placed far left and the last element is placed far right. The reverse is true when
- * set to align diagonally up. Inner elements may also be blocked from going past one side of the
- * outer elements for cases where inner content exceeds size of outer content.
+ * set to align diagonally up. Inner elements may also be blocked from going past a chosen margin
  *
  * Note
  * ----------------------------------------------------------------------------------------------
- * Uses and requires javascript-detect-element-resize.js to be responsive
+ * Requires javascript-detect-element-resize.js
  * https://github.com/sdecima/javascript-detect-element-resize
- *
  *
  *  Options (set as classes on a container element)
  * ----------------------------------------------------------------------------------------------
@@ -34,11 +32,9 @@
  * https://www.github.com/
  *
  * Version
- * -----------
+ * -------
  * 0.1
 **/
-
-var rdde = {};
 
 document.addEventListener("DOMContentLoaded", function () {
     if (typeof window.addResizeListener !== "function" || typeof window.removeResizeListener !== "function") {
@@ -48,11 +44,43 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     var boxes = document.getElementsByClassName("rdde");
-    if (!boxes)
+    if (boxes.length == 0) {
+        console.log("Note: No elements with rdde class.");
         return;
+    }
 
     for (let i = 0; i < boxes.length; i++)
         addRddeBox(boxes[i]);
+
+    function addRddeBox(box) {
+        box.style.display = "flex";
+        box.style.flexDirection = "column";
+        box.style.justifyContent = "space-between";
+        // If text wraps, this keeps it looking good
+        box.style.textAlign = "center"; // <--------
+
+        checkClasses(box);
+        window.addResizeListener(box, function boxResizeCallBack() {
+            boxResize(box);
+        });
+    }
+
+    function checkClasses(box) {
+        var classes = box.classList;
+
+        // Set defaults if not set.
+        if (!classes.contains("rdde-left-basis") && !classes.contains("rdde-right-basis"))
+            box.classList.add("rdde-left-basis");
+        if (!classes.contains("rdde-down") && !classes.contains("rdde-up"))
+            box.classList.add("rdde-down");
+
+        if (classes.contains("rdde-left-basis"))
+            box.style.alignItems = "flex-start";
+        else
+            box.style.alignItems = "flex-end";
+
+        boxResize(box);
+    }
 
     function boxResize(box) {
         var parts = box.children;
@@ -70,7 +98,6 @@ document.addEventListener("DOMContentLoaded", function () {
         var splitWidth = innerWidth / (numParts - 1);
 
         var bBlock = !box.classList.contains("rdde-no-block");
-
         if (box.classList.contains("rdde-down")) {
             if (box.classList.contains("rdde-left-basis")) {
                 for (let i = 1; i < numParts; i++) {
@@ -90,7 +117,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             }
         }
-        else { // box.classList.contains("rdde-up"))
+        else { // box.classList.contains("rdde-up")
             if (box.classList.contains("rdde-left-basis")) {
                 for (let i = 0; i < numParts; i++) {
                     let iMirror = numParts - i - 1;
@@ -110,49 +137,4 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         }
     }
-
-    function addRddeBox(box) {
-        box.style.display = "flex";
-        box.style.flexDirection = "column";
-        box.style.justifyContent = "space-between";
-        // If text wraps, this keeps it looking good
-        box.style.textAlign = "center"; // <--------
-
-        var parts = box.children;
-        for (let j = 0; j < parts.length; j++)
-            // Need width of element shrunk to content ----
-            parts[j].style.display = "inline-block"; // <--
-
-        classUpdate(box);
-
-        window.addResizeListener(box, function boxResizeCallBack() {
-            boxResize(box);
-        });
-    }
-
-    // If you need to dynamically chage alignment or blocking, call this after first setting the classes on the box.
-    function classUpdate(box) {
-        var classes = box.classList;
-
-        box.style.marginLeft = "unset";
-        box.style.marginRight = "unset";
-
-        // Set defaults if not set.
-        if (!classes.contains("rdde-left-basis") && !classes.contains("rdde-right-basis"))
-            box.classList.add("rdde-left-basis");
-        if (!classes.contains("rdde-down") && !classes.contains("rdde-up"))
-            box.classList.add("rdde-down");
-
-        if (classes.contains("rdde-left-basis"))
-            box.style.alignItems = "flex-start";
-        else
-            box.style.alignItems = "flex-end";
-
-        boxResize(box);
-    }
-
-    rdde = {
-        addRddeBox: addRddeBox,
-        classUpdate: classUpdate
-    };
 });
