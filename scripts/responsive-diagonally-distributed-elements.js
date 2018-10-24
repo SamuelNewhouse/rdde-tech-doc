@@ -60,9 +60,7 @@ document.addEventListener("DOMContentLoaded", function () {
         box.style.textAlign = "center"; // <--------
 
         checkClasses(box);
-        window.addResizeListener(box, function boxResizeCallBack() {
-            boxResize(box);
-        });
+        window.addResizeListener(box, distributeElements);
     }
 
     function checkClasses(box) {
@@ -78,11 +76,10 @@ document.addEventListener("DOMContentLoaded", function () {
             box.style.alignItems = "flex-start";
         else
             box.style.alignItems = "flex-end";
-
-        boxResize(box);
     }
 
-    function boxResize(box) {
+    function distributeElements() {
+        var box = this;
         var parts = box.children;
         // Last child will be a div added from javascript-detect-element-resize.js.
         // It must be ignored for this to work properly.
