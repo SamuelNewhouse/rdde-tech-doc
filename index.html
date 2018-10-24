@@ -265,6 +265,54 @@ for (let i = 1; i &lt; numParts; i++) {
 	<p>Any default settings not overridden or made explicit will be added. This also sets the proper flexbox alignItems for rdde-left-basis and rdde-right-basis. rdde-down and rdde-right-basis will be fully explained later. They can be safely placed in the code now without interfering with the default options.</p>
 	</section>
 
+	<section>
+		<h2>Function distributeElements</h2>
+		<p>At this point, only the code for the left basis down sloping diagonal will be included here. Later, the code for all the other option combinations will be explained.</p>
+<pre><code>function distributeElements() {
+  var box = this;
+  var parts = box.children;
+  // Last child will be a div added from javascript-detect-element-resize.js.
+  // It must be ignored for this to work properly.
+  var numParts = parts.length - 1; // &#x3C;-----------
+
+  var firstOffset = parts[0].clientWidth / 2;
+  var lastOffset = parts[numParts - 1].clientWidth / 2;
+
+  var innerStart = firstOffset;
+  var innerEnd = box.clientWidth - lastOffset;
+
+  var innerWidth = innerEnd - innerStart;
+  var splitWidth = innerWidth / (numParts - 1);
+
+  var bBlock = !box.classList.contains(&#x22;rdde-no-block&#x22;);
+
+  if (box.classList.contains(&#x22;rdde-down&#x22;)) {
+    if (box.classList.contains(&#x22;rdde-left-basis&#x22;)) {
+      for (let i = 1; i &#x3C; numParts; i++) {
+        let marginLeft = splitWidth * i + firstOffset - parts[i].clientWidth / 2;
+        if (bBlock)
+          marginLeft = Math.max(0, marginLeft);
+        parts[i].style.marginLeft = marginLeft + &#x22;px&#x22;;
+      }
+    }
+    else {  // &#x3C;-- box.classList.contains(&#x22;rdde-right-basis&#x22;)
+    }
+  }
+  else {    // &#x3C;-- box.classList.contains(&#x22;rdde-up&#x22;)
+    if (box.classList.contains(&#x22;rdde-left-basis&#x22;)) {
+    }
+    else {  // &#x3C;-- box.classList.contains(&#x22;rdde-right-basis&#x22;)
+    }
+  }
+}</code></pre>
+	<p>Most of these lines of code have been covered before, but there are a few new twists...</p>
+<pre><code>var box = this;</code></pre>
+	<p>this is set to the element being resized when distributeElements is called from javascript-detect-element-resize.js.</p>
+<pre><code>var numParts = parts.length - 1;</code></pre>
+	<p>javascript-detect-element-resize.js adds a div to the end of the container element. It must be ignored.</p>
+	<p>The if statements are a bit messy. But essentially, there are four combinations of settings, each requiring a different method for calculating the margins.</p>
+	<p>This code is now ready to work for the default configuration. The next sections will demonstrate the other three primary combinations of settings.</p>
+	</section>
 
 	<section>
 	<p>The differences between rdde-left-basis and rdde-right-basis are only noticeable when the container element either becomes small enough for elements to cross the basis margin or the container element width is smoothly changing.</p>
