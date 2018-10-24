@@ -246,6 +246,25 @@ for (let i = 1; i &lt; numParts; i++) {
 	<p>window.addResizeListener is a function created by javascript-detect-element-resize.js. The first argument accepts an element (box) that it monitors for resize. The second argument is a function that it will call anytime it detects that box has been resized. When addResizeListener calls distributeElements, it will set its this value to the element being resized. </p>
 	</section>
 
+	<section>
+		<h2>Function checkClasses</h2>
+<pre><code>function checkClasses(box) {
+  var classes = box.classList;
+
+  // Set defaults if not set.
+  if (!classes.contains(&#x22;rdde-left-basis&#x22;) &#x26;&#x26; !classes.contains(&#x22;rdde-right-basis&#x22;))
+    box.classList.add(&#x22;rdde-left-basis&#x22;);
+  if (!classes.contains(&#x22;rdde-down&#x22;) &#x26;&#x26; !classes.contains(&#x22;rdde-up&#x22;))
+    box.classList.add(&#x22;rdde-down&#x22;);
+
+  if (classes.contains(&#x22;rdde-left-basis&#x22;))
+    box.style.alignItems = &#x22;flex-start&#x22;;
+  else
+    box.style.alignItems = &#x22;flex-end&#x22;;
+}</code></pre>
+	<p>Any default settings not overridden or made explicit will be added. This also sets the proper flexbox alignItems for rdde-left-basis and rdde-right-basis. rdde-down and rdde-right-basis will be fully explained later. They can be safely placed in the code now without interfering with the default options.</p>
+	</section>
+
 
 	<section>
 	<p>The differences between rdde-left-basis and rdde-right-basis are only noticeable when the container element either becomes small enough for elements to cross the basis margin or the container element width is smoothly changing.</p>
