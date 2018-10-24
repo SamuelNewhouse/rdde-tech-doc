@@ -229,6 +229,21 @@ for (let i = 1; i &lt; numParts; i++) {
 	<p><strong>distributeElements:</strong> The function that actually performs element distribution. It's also the callback function passed to window.addResizeListener.</p>
 	</section>
 
+	<section>
+		<h2>Function addRddeBox</h2>
+<pre><code>function addRddeBox(box) {
+  box.style.display = &#x22;flex&#x22;;
+  box.style.flexDirection = &#x22;column&#x22;;
+  box.style.justifyContent = &#x22;space-between&#x22;;
+  // If text wraps, this keeps it looking good
+  box.style.textAlign = &#x22;center&#x22;; // &#x3C;--------
+
+  checkClasses(box);
+  window.addResizeListener(box, distributeElements);
+}</code></pre>
+	<p>The styles set here apply to every rdde element regardless of other options. textAlign = "center" is a good method for maintaining an even looking distribution if text in an inner element wraps. When text wraps, the element's clientWidth won't necessarily match the apparent text width. Centering the text within its container element makes this be much less of a problem.</p>
+	<p>checkClasses will be covered in the next section.</p>
+	<p>window.addResizeListener is a function created by javascript-detect-element-resize.js. The first argument accepts an element (box) that it monitors for resize. The second argument is a function that it will call anytime it detects that box has been resized. When addResizeListener calls distributeElements, it will set its this value to the element being resized. </p>
 	</section>
 
 
