@@ -196,8 +196,39 @@ for (let i = 1; i &lt; numParts; i++) {
   }
 });</code></pre>
 
-		<p>javascript-detect-element-resize.js adds the functions addResizeListener and removeResizeListener to the window object. If those functions don't exist on the window object, it's safe to assume javascript-detect-element-resize.js isn't loaded.</p>
-		<p></p>
+		<p>javascript-detect-element-resize.js adds the functions addResizeListener and removeResizeListener to the window object. If those functions don't exist on the window object, it's safe to assume javascript-detect-element-resize.js isn't loaded. After that consideration, it's time to see if any elements actually have the rdde class assigned to them...</p>
+<pre><code>document.addEventListener(&#x22;DOMContentLoaded&#x22;, function () {
+  if (typeof window.addResizeListener !== &#x22;function&#x22; || typeof window.removeResizeListener !== &#x22;function&#x22;) {
+    console.log(&#x22;ERROR: javascript-detect-element-resize.js is required for diagonally-distributed-elements.js&#x22;);
+    console.log(&#x22;See: https://github.com/sdecima/javascript-detect-element-resize&#x22;);
+    return;
+  }
+
+  var boxes = document.getElementsByClassName(&#x22;rdde&#x22;);
+  if (boxes.length == 0) {
+    console.log(&#x22;Note: No elements with rdde class.&#x22;);
+    return;
+  }
+
+  for (let i = 0; i &#x3C; boxes.length; i++)
+    addRddeBox(boxes[i]);
+
+  function addRddeBox(box) {
+  }
+
+  function checkClasses(box) {
+  }
+
+  function boxResize(box) {
+  }
+});</code></pre>
+
+	<p>If there are no elements with the class rdde, log a note saying so and return. If there are any elements with the rdde class, then addRddeBox() gets passed each of those elements individually to start setting them up. Each function will be covered separately in further sections, but here is a quick breakdown.</p>
+	<p><strong>addRddeBox:</strong> Sets the general style that will apply to every RDDE element, calls checkClasses, and sets the callback necessary to make everything responsive.</p>
+	<p><strong>checkClasses:</strong> Checks for class options and sets defaults if not already set, sets class specific flexbox properties, and calls distributeElements for an initial distribution of elements.</p>
+	<p><strong>distributeElements:</strong> The function that actually performs element distribution. It's also the callback function passed to window.addResizeListener.</p>
+	</section>
+
 	</section>
 
 
