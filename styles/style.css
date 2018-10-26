@@ -41,6 +41,17 @@ img {
     max-width: 30px;
 }
 
+.half-width {
+    border: 1px solid #aaa;
+    padding: 15px;
+    margin: auto;
+    max-width: 15%;
+}
+
+.half-width > span {
+    border: 1px solid red;
+    padding: 5px;
+}
 
 .collapse-left {
     display: flex;
