@@ -85,11 +85,15 @@ document.addEventListener("DOMContentLoaded", function () {
         // It must be ignored for this to work properly.
         var numParts = parts.length - 1; // <-----------
 
+        var boxCS = getComputedStyle(box);
+        var distributionWidth =    // Distribution must occur inside of any padding...
+            box.clientWidth - parseFloat(boxCS.paddingLeft) - parseFloat(boxCS.paddingRight);
+
         var firstOffset = parts[0].clientWidth / 2;
         var lastOffset = parts[numParts - 1].clientWidth / 2;
 
         var innerStart = firstOffset;
-        var innerEnd = box.clientWidth - lastOffset;
+        var innerEnd = distributionWidth - lastOffset;
 
         var innerWidth = innerEnd - innerStart;
         var splitWidth = innerWidth / (numParts - 1);
