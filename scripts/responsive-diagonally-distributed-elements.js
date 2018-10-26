@@ -105,7 +105,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             }
             else { // box.classList.contains("rdde-right-basis")
-                for (let i = 0; i < numParts; i++) {
+                for (let i = 0; i < numParts - 1; i++) {
                     let iMirror = numParts - i - 1;
                     let marginRight = splitWidth * iMirror + lastOffset - parts[i].clientWidth / 2;
                     if (bBlock)
@@ -116,7 +116,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         else { // box.classList.contains("rdde-up")
             if (box.classList.contains("rdde-left-basis")) {
-                for (let i = 0; i < numParts; i++) {
+                for (let i = 0; i < numParts - 1; i++) {
                     let iMirror = numParts - i - 1;
                     let marginLeft = splitWidth * iMirror + lastOffset - parts[i].clientWidth / 2;
                     if (bBlock)
