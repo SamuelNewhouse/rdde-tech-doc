@@ -315,6 +315,32 @@ for (let i = 1; i &lt; numParts; i++) {
 	</section>
 
 	<section>
+		<h2>Container Element Padding</h2>
+		<p>Since it's fairly easy to account for the rdde element itself having padding, that consideration will be added to the code by modifying distributeElements...</p>
+<pre><code>function distributeElements() {
+  var box = this;
+  var parts = box.children;
+  // Last child will be a div added from javascript-detect-element-resize.js.
+  // It must be ignored for this to work properly.
+  var numParts = parts.length - 1; // &#x3C;-----------
+
+  var boxCS = getComputedStyle(box);
+  var distributionWidth =   // Distribution should occur inside of any padding...
+      box.clientWidth - parseFloat(boxCS.paddingLeft) - parseFloat(boxCS.paddingRight);
+
+  var firstOffset = parts[0].clientWidth / 2;
+  var lastOffset = parts[numParts - 1].clientWidth / 2;
+
+  var innerStart = firstOffset;
+  var innerEnd = distributionWidth - lastOffset;
+
+  var innerWidth = innerEnd - innerStart;
+  var splitWidth = innerWidth / (numParts - 1);
+  ...
+</code></pre>
+		<p>It's a fairly simple change. The computed style of the rdde box is placed in the variable boxCS. Then new variable called distributionWidth is added to store the width between left and right padding. distributionWidth is then used to calculate an innerEnd suitable for the padding. Although the code for assigning splitWidth is unchanged, it's influenced by innerWidth which is influenced by innerEnd, meaning the change propogates correctly through the code.</p>
+		<p>From this point forward, keep in mind that this change properly handles padding. It won't be explicitly shown in the upcoming diagrams, but imagining any padding to exist outside the diagrams is conceptually accurate.</p>
+	</section>
 
 	<section>
 		<h2>Testing</h2>
