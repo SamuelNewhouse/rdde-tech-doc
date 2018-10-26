@@ -10,8 +10,8 @@
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="570"
-   height="720"
-   viewBox="0 0 570 720.00004"
+   height="660"
+   viewBox="0 0 570 660.00003"
    version="1.1"
    id="svg8"
    inkscape:version="0.92.3 (2405546, 2018-03-11)"
@@ -150,9 +150,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.70710678"
-     inkscape:cx="479.70458"
-     inkscape:cy="316.22936"
+     inkscape:zoom="1"
+     inkscape:cx="377.41464"
+     inkscape:cy="358.36136"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -172,7 +172,7 @@
      inkscape:snap-others="true"
      inkscape:window-width="1920"
      inkscape:window-height="1057"
-     inkscape:window-x="-8"
+     inkscape:window-x="1912"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
      inkscape:snap-global="false"
@@ -195,10 +195,10 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(0,-410.85828)">
+     transform="translate(0,-470.85828)">
     <g
-       id="g2081"
-       transform="translate(-827.08033,1250.8812)">
+       id="g6762"
+       transform="translate(-827.08033,1309.1142)">
       <rect
          style="fill:#a7cdff;fill-opacity:1;stroke:#000000;stroke-width:1.99999988;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:3.99359989;stroke-opacity:1;paint-order:normal"
          id="rect9146"
@@ -637,114 +637,88 @@
          d="m 1385.1664,-740.26672 -29,-20.2622"
          id="path10664"
          inkscape:connector-curvature="0" />
-      <g
-         transform="translate(11.951833,-1202)"
-         id="g11138">
-        <text
-           id="text9266"
-           y="960.39722"
-           x="1077.2561"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.33333397px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
-           xml:space="preserve"><tspan
-             y="960.39722"
-             x="1077.2561"
-             id="tspan9264"
-             sodipodi:role="line">lastOffset</tspan></text>
-        <text
-           xml:space="preserve"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.33333397px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
-           x="1055.8291"
-           y="960.39722"
-           id="text9270"><tspan
-             sodipodi:role="line"
-             id="tspan9268"
-             x="1055.8291"
-             y="960.39722">+</tspan></text>
-        <text
-           xml:space="preserve"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.33333397px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
-           x="1077.9501"
-           y="939.26733"
-           id="text9276"><tspan
-             sodipodi:role="line"
-             id="tspan9274"
-             x="1077.9501"
-             y="939.26733">splitWidth * iMirror</tspan></text>
-        <text
-           xml:space="preserve"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.33333397px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
-           x="918.99438"
-           y="939.26733"
-           id="text9280"><tspan
-             sodipodi:role="line"
-             id="tspan9278"
-             x="918.99438"
-             y="939.26733">marginRight =</tspan></text>
-        <text
-           id="text9286"
-           y="979.97266"
-           x="1077.3153"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.33333397px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
-           xml:space="preserve"><tspan
-             y="979.97266"
-             x="1077.3153"
-             id="tspan9284"
-             sodipodi:role="line">parts[i].clientWidth / 2</tspan></text>
-        <text
-           transform="scale(1.5422132,0.64841878)"
-           id="text9290"
-           y="1511.3267"
-           x="684.50507"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:26.73169708px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.99999994"
-           xml:space="preserve"><tspan
-             style="stroke-width:0.99999994"
-             y="1511.3267"
-             x="684.50507"
-             id="tspan9288"
-             sodipodi:role="line">-</tspan></text>
-        <text
-           id="text10929"
-           y="918.13745"
-           x="1077.2561"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.33333397px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
-           xml:space="preserve"><tspan
-             y="918.13745"
-             x="1077.2561"
-             id="tspan10927"
-             sodipodi:role="line">iMirror = numParts - 1 - i</tspan></text>
-        <text
-           id="text1116"
-           y="1075.2134"
-           x="918.99438"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.33333397px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
-           xml:space="preserve"><tspan
-             y="1075.2134"
-             x="918.99438"
-             id="tspan1114"
-             sodipodi:role="line">parts[i].style.marginRight = marginRight</tspan></text>
-        <text
-           id="text10960"
-           y="1017.4061"
-           x="918.93512"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.33333397px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
-           xml:space="preserve"><tspan
-             y="1017.4061"
-             x="918.93512"
-             id="tspan10958"
-             sodipodi:role="line">if (class != &quot;rdde-no-block&quot;) <tspan
-   style="fill:#009210;fill-opacity:1"
-   id="tspan11113">// default is &quot;rdde-block&quot;</tspan></tspan></text>
-        <text
-           xml:space="preserve"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.33333397px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
-           x="965.84595"
-           y="1038.536"
-           id="text10964"><tspan
-             sodipodi:role="line"
-             id="tspan10962"
-             x="965.84595"
-             y="1038.536">marginRight = Math.max(0, marginRight)</tspan></text>
-      </g>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.33333397px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+         x="1089.2079"
+         y="-241.60278"
+         id="text9266"><tspan
+           sodipodi:role="line"
+           id="tspan9264"
+           x="1089.2079"
+           y="-241.60278">lastOffset</tspan></text>
+      <text
+         id="text9270"
+         y="-241.60278"
+         x="1067.7809"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.33333397px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+         xml:space="preserve"><tspan
+           y="-241.60278"
+           x="1067.7809"
+           id="tspan9268"
+           sodipodi:role="line">+</tspan></text>
+      <text
+         id="text9276"
+         y="-262.73267"
+         x="1089.9019"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.33333397px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+         xml:space="preserve"><tspan
+           y="-262.73267"
+           x="1089.9019"
+           id="tspan9274"
+           sodipodi:role="line">splitWidth * iMirror</tspan></text>
+      <text
+         id="text9280"
+         y="-262.73267"
+         x="930.94623"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.33333397px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+         xml:space="preserve"><tspan
+           y="-262.73267"
+           x="930.94623"
+           id="tspan9278"
+           sodipodi:role="line">marginRight =</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.33333397px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+         x="1089.2671"
+         y="-222.02734"
+         id="text9286"><tspan
+           sodipodi:role="line"
+           id="tspan9284"
+           x="1089.2671"
+           y="-222.02734">parts[i].clientWidth / 2</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:26.73169708px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.99999994"
+         x="692.25488"
+         y="-342.4136"
+         id="text9290"
+         transform="scale(1.5422132,0.64841878)"><tspan
+           sodipodi:role="line"
+           id="tspan9288"
+           x="692.25488"
+           y="-342.4136"
+           style="stroke-width:0.99999994">-</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.33333397px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+         x="1089.2079"
+         y="-283.86255"
+         id="text10929"><tspan
+           sodipodi:role="line"
+           id="tspan10927"
+           x="1089.2079"
+           y="-283.86255">iMirror = numParts - 1 - i</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.33333397px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+         x="930.94623"
+         y="-183.25261"
+         id="text1116"><tspan
+           sodipodi:role="line"
+           id="tspan1114"
+           x="930.94623"
+           y="-183.25261">parts[i].style.marginRight = marginRight</tspan></text>
     </g>
   </g>
 </svg>

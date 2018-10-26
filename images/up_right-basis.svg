@@ -10,8 +10,8 @@
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="570"
-   height="710"
-   viewBox="0 0 570 710.00004"
+   height="640"
+   viewBox="0 0 570 640.00003"
    version="1.1"
    id="svg8"
    inkscape:version="0.92.3 (2405546, 2018-03-11)"
@@ -151,8 +151,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1"
-     inkscape:cx="264.0045"
-     inkscape:cy="314.28139"
+     inkscape:cx="426.29929"
+     inkscape:cy="362.71433"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -172,7 +172,7 @@
      inkscape:snap-others="true"
      inkscape:window-width="1920"
      inkscape:window-height="1057"
-     inkscape:window-x="-8"
+     inkscape:window-x="1912"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
      inkscape:snap-global="false"
@@ -195,10 +195,10 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(0,-420.85828)">
+     transform="translate(0,-490.85828)">
     <g
-       id="g2640"
-       transform="translate(-80.375584,476.32845)">
+       id="g6864"
+       transform="translate(-80.375584,544.84917)">
       <rect
          style="fill:#a7cdff;fill-opacity:1;stroke:#000000;stroke-width:1.99999988;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:3.99359989;stroke-opacity:1;paint-order:normal"
          id="rect1209"
@@ -722,35 +722,13 @@
       <text
          xml:space="preserve"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.33333397px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
-         x="188.4248"
-         y="582.54315"
-         id="text1485"><tspan
-           sodipodi:role="line"
-           id="tspan1483"
-           x="188.4248"
-           y="582.54315">if (class != &quot;rdde-no-block&quot;) <tspan
-   style="fill:#009210;fill-opacity:1"
-   id="tspan1481">// default is &quot;rdde-block&quot;</tspan></tspan></text>
-      <text
-         id="text1489"
-         y="603.67291"
-         x="235.33563"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.33333397px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
-         xml:space="preserve"><tspan
-           y="603.67291"
-           x="235.33563"
-           id="tspan1487"
-           sodipodi:role="line">marginRight = Math.max(0, marginRight)</tspan></text>
-      <text
-         xml:space="preserve"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.33333397px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
          x="188.48405"
-         y="646.01611"
+         y="578.97467"
          id="text1493"><tspan
            sodipodi:role="line"
            id="tspan1491"
            x="188.48405"
-           y="646.01611">parts[i].style.marginRight = marginRight</tspan></text>
+           y="578.97467">parts[i].style.marginRight = marginRight</tspan></text>
     </g>
   </g>
 </svg>

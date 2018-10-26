@@ -10,8 +10,8 @@
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="570"
-   height="710"
-   viewBox="0 0 570 710.00004"
+   height="640"
+   viewBox="0 0 570 640.00003"
    version="1.1"
    id="svg8"
    inkscape:version="0.92.3 (2405546, 2018-03-11)"
@@ -153,8 +153,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1"
-     inkscape:cx="242.69989"
-     inkscape:cy="325.52004"
+     inkscape:cx="351.74473"
+     inkscape:cy="374.61729"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -174,7 +174,7 @@
      inkscape:snap-others="true"
      inkscape:window-width="1920"
      inkscape:window-height="1057"
-     inkscape:window-x="-8"
+     inkscape:window-x="1912"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
      inkscape:snap-global="false"
@@ -197,10 +197,10 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(0,-420.85828)">
+     transform="translate(0,-490.85828)">
     <g
-       id="g1416"
-       transform="translate(-85.032129,1260.3812)">
+       id="g6663"
+       transform="translate(-85.032129,1328.9019)">
       <rect
          ry="0"
          rx="0"
@@ -605,34 +605,12 @@
            id="tspan4975"
            sodipodi:role="line">-</tspan></text>
       <text
-         id="text8817"
-         y="-199.25958"
-         x="188.4248"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.33333397px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
-         xml:space="preserve"><tspan
-           y="-199.25958"
-           x="188.4248"
-           id="tspan8815"
-           sodipodi:role="line">if (class != &quot;rdde-no-block&quot;) <tspan
-   id="tspan10984"
-   style="fill:#009210;fill-opacity:1">// default is &quot;rdde-block&quot;</tspan></tspan></text>
-      <text
-         xml:space="preserve"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.33333397px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
-         x="235.33563"
-         y="-178.12982"
-         id="text8821"><tspan
-           sodipodi:role="line"
-           id="tspan8819"
-           x="235.33563"
-           y="-178.12982">marginLeft = Math.max(0, marginLeft)</tspan></text>
-      <text
          id="text1074"
-         y="-135.78662"
+         y="-202.82805"
          x="188.48405"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.33333397px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
          xml:space="preserve"><tspan
-           y="-135.78662"
+           y="-202.82805"
            x="188.48405"
            id="tspan1072"
            sodipodi:role="line">parts[i].style.marginLeft = marginLeft</tspan></text>

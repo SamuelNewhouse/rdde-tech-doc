@@ -10,12 +10,12 @@
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="570"
-   height="720"
-   viewBox="0 0 570 720.00004"
+   height="660"
+   viewBox="0 0 570 660.00003"
    version="1.1"
    id="svg8"
    inkscape:version="0.92.3 (2405546, 2018-03-11)"
-   sodipodi:docname="up_leftt-basis.svg">
+   sodipodi:docname="up_left-basis.svg">
   <defs
      id="defs2">
     <marker
@@ -150,9 +150,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.70710678"
-     inkscape:cx="481.27369"
-     inkscape:cy="358.30178"
+     inkscape:zoom="0.5"
+     inkscape:cx="522.35052"
+     inkscape:cy="327.6962"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -172,7 +172,7 @@
      inkscape:snap-others="true"
      inkscape:window-width="1920"
      inkscape:window-height="1057"
-     inkscape:window-x="-8"
+     inkscape:window-x="1912"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
      inkscape:snap-global="false"
@@ -195,10 +195,10 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(0,-410.85828)">
+     transform="translate(0,-470.85828)">
     <g
-       id="g3204"
-       transform="translate(-835.56562,464.57845)">
+       id="g6971"
+       transform="translate(-835.56562,522.81145)">
       <rect
          ry="0"
          rx="0"
@@ -743,36 +743,14 @@
            sodipodi:role="line">iMirror = numParts - 1 - i</tspan></text>
       <text
          id="text11432"
-         y="659.51611"
+         y="603.05011"
          x="939.43152"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.33333397px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
          xml:space="preserve"><tspan
-           y="659.51611"
+           y="603.05011"
            x="939.43152"
            id="tspan11430"
            sodipodi:role="line">parts[i].style.marginLeft = marginLeft</tspan></text>
-      <text
-         id="text11438"
-         y="601.70886"
-         x="939.37225"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.33333397px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
-         xml:space="preserve"><tspan
-           y="601.70886"
-           x="939.37225"
-           id="tspan11436"
-           sodipodi:role="line">if (class != &quot;rdde-no-block&quot;) <tspan
-   style="fill:#009210;fill-opacity:1"
-   id="tspan11434">// default is &quot;rdde-block&quot;</tspan></tspan></text>
-      <text
-         xml:space="preserve"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.33333397px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
-         x="986.28308"
-         y="622.83875"
-         id="text11442"><tspan
-           sodipodi:role="line"
-           id="tspan11440"
-           x="986.28308"
-           y="622.83875">marginLeft = Math.max(0, marginLeft)</tspan></text>
     </g>
   </g>
 </svg>
