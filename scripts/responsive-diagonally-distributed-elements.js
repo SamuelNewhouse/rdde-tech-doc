@@ -56,8 +56,8 @@ document.addEventListener("DOMContentLoaded", function () {
         box.style.display = "flex";
         box.style.flexDirection = "column";
         box.style.justifyContent = "space-between";
-        // If text wraps, this keeps it looking good
-        box.style.textAlign = "center"; // <--------
+        // If text wraps, this keeps the diagonal alignment looking good
+        box.style.textAlign = "center"; // <----------------------------
 
         checkClasses(box);
         window.addResizeListener(box, distributeElements);
