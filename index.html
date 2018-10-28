@@ -383,6 +383,45 @@ else { // box.classList.contains(&quot;rdde-up&quot;)
 		<p>There's another mirror here in addition to iMirror. The index counter for left-basis + rdde-down starts at 1 because the 0 index can be ignored. Similarly, the last index can be ignored in the case of right-basis + rdde-down. The last index is going always going to set far right, so there's no need to calculate the rightMargin for it.</p>
 	</section>
 
+	<section>
+		<h2>rdde-up rdde-left-basis</h2>
+		<img src="images/up_left-basis.svg">
+		<p>In this diagram, the first element (i=0) is on the right instead of the left. This points to an important philosophical choice to be made for uphill diagonals. It might be argued that the order of elements should be automatically reversed in the RDDE code since a long uphill diagonal will be naturally read from left to right. That means not reversing the order could lead to confusion in some cases as the bottom element will probably be looked at first instead of the top element.</p>
+		<p>However, automatically reversing the order could also lead to confusion. As the diagonal shrinks and gets closer to vertical alignment, the more natural it becomes to read from top to bottom instead of left to right. This leaves the natural reading order ambiguous in many cases, and completely unknown from the perspective of trying to develop for all possible scenarios. The decision for RDDE is to leave the vertical order intact as it sits in the HTML. It's up to the developer to place the elements in the order they see fit.</p>
+		<p>For the code, just keep filling out the if-else statements to match the diagrams...</p>
+<pre><code>if (box.classList.contains(&quot;rdde-down&quot;)) {
+  if (box.classList.contains(&quot;rdde-left-basis&quot;)) {
+    for (let i = 1; i &lt; numParts; i++) {
+      let marginLeft = splitWidth * i + firstOffset - parts[i].clientWidth / 2;
+      if (bBlock)
+        marginLeft = Math.max(0, marginLeft);
+      parts[i].style.marginLeft = marginLeft + &quot;px&quot;;
+    }
+  }
+  else { // box.classList.contains(&quot;rdde-right-basis&quot;)
+    for (let i = 0; i &lt; numParts - 1; i++) {
+      let iMirror = numParts - i - 1;
+      let marginRight = splitWidth * iMirror + lastOffset - parts[i].clientWidth / 2;
+      if (bBlock)
+        marginRight = Math.max(0, marginRight);
+      parts[i].style.marginRight = marginRight + &quot;px&quot;;
+    }
+  }
+}
+else { // box.classList.contains(&quot;rdde-up&quot;)
+  if (box.classList.contains(&quot;rdde-left-basis&quot;)) {
+    for (let i = 0; i &lt; numParts - 1; i++) {
+      let iMirror = numParts - i - 1;
+      let marginLeft = splitWidth * iMirror + lastOffset - parts[i].clientWidth / 2;
+      if (bBlock)
+        marginLeft = Math.max(0, marginLeft);
+      parts[i].style.marginLeft = marginLeft + &quot;px&quot;;
+    }
+  }
+  else { // box.classList.contains(&quot;rdde-right-basis&quot;)
+  }
+}</code></pre>
+		<p>There's not much to point out about this code other than it's identical to the last section except marginLeft is being set instead of marginRight.</p>
 	</section>
 
 	<section>
