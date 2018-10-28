@@ -339,7 +339,15 @@ for (let i = 1; i &lt; numParts; i++) {
   ...
 </code></pre>
 		<p>It's a fairly simple change. The computed style of the rdde box is placed in the variable boxCS. Then new variable called distributionWidth is added to store the width between left and right padding. distributionWidth is then used to calculate an innerEnd suitable for the padding. Although the code for assigning splitWidth is unchanged, it's influenced by innerWidth which is influenced by innerEnd, meaning the change propogates correctly through the code.</p>
-		<p>From this point forward, keep in mind that this change properly handles padding. It won't be explicitly shown in the upcoming diagrams, but imagining any padding to exist outside the diagrams is conceptually accurate.</p>
+		<p>From this point forward, keep in mind that this change properly handles padding. To avoid clutter, it's not explicitly shown in any diagrams, but imagining any padding to exist outside the diagrams is conceptually accurate.</p>
+	</section>
+
+	<section>
+		<h2>rdde-down rdde-left-basis</h2>
+		<p>This is what has already been covered as the basic starting point. It's the default to be used if no direction or basis is provided.</p>
+		<img src="images/down_left-basis.svg">
+		<p>There's is nothing to add here in terms of code or explanation. It's here more for convenience so all four options are laid out in sequence for comparison.</p>
+	</section>
 	</section>
 
 	<section>
