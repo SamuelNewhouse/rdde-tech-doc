@@ -348,6 +348,41 @@ for (let i = 1; i &lt; numParts; i++) {
 		<img src="images/down_left-basis.svg">
 		<p>There's is nothing to add here in terms of code or explanation. It's here more for convenience so all four options are laid out in sequence for comparison.</p>
 	</section>
+
+	<section>
+		<h2>rdde-down rdde-right-basis</h2>
+		<p></p>
+		<img src="images/down_right-basis.svg">
+		<p>The first thing to notice here is that align-items is set to flex-end. This allows the right margin to be used for distributing the inner elements. There is also a new variable called iMirror. This gets the mirror index of the current index for the parts array so splitWidth can be multiplied by the proper amount. lastOffset is also being used in this situation instead of firstOffset. Starting from the right margin requires this.</p>
+		<p>Incorporating this into the existing JavaScript code is done in the main if statement in distributeElements function...</p>
+<pre><code>if (box.classList.contains(&quot;rdde-down&quot;)) {
+  if (box.classList.contains(&quot;rdde-left-basis&quot;)) {
+    for (let i = 1; i &lt; numParts; i++) {
+      let marginLeft = splitWidth * i + firstOffset - parts[i].clientWidth / 2;
+      if (bBlock)
+        marginLeft = Math.max(0, marginLeft);
+        parts[i].style.marginLeft = marginLeft + &quot;px&quot;;
+      }
+    }
+    else { // box.classList.contains(&quot;rdde-right-basis&quot;)
+      for (let i = 0; i &lt; numParts - 1; i++) {
+        let iMirror = numParts - i - 1;
+        let marginRight = splitWidth * iMirror + lastOffset - parts[i].clientWidth / 2;
+        if (bBlock)
+          marginRight = Math.max(0, marginRight);
+        parts[i].style.marginRight = marginRight + &quot;px&quot;;
+    }
+  }
+}
+else { // box.classList.contains(&quot;rdde-up&quot;)
+    if (box.classList.contains(&quot;rdde-left-basis&quot;)) {
+    }
+    else { // box.classList.contains(&quot;rdde-right-basis&quot;)
+    }
+}</code></pre>
+		<p>There's another mirror here in addition to iMirror. The index counter for left-basis + rdde-down starts at 1 because the 0 index can be ignored. Similarly, the last index can be ignored in the case of right-basis + rdde-down. The last index is going always going to set far right, so there's no need to calculate the rightMargin for it.</p>
+	</section>
+
 	</section>
 
 	<section>
