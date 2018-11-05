@@ -45,14 +45,13 @@ img {
     max-width: 30px;
 }
 
-.half-width {
+.scrunched {
     border: 1px solid #aaa;
-    padding: 15px;
+    padding: 10px;
     margin: auto;
-    max-width: 15%;
 }
 
-.half-width > span {
+.scrunched > span {
     border: 1px solid red;
     padding: 5px;
 }
