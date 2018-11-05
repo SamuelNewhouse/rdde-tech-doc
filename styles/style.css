@@ -80,7 +80,16 @@ img {
     animation: pulse-width-100-0 2s ease-in-out infinite alternate;
 }
 
+.size-toggle-expand {
+    animation: expand-to-50 1.2s linear forwards;
+}
 @keyframes pulse-width-100-0{
     0% {width: 100%;}
     100% {width: 0%;}
 }
+
+@keyframes expand-to-50 {
+    0% {width:0%;}
+    100% {width: 50%;}
+}
+
