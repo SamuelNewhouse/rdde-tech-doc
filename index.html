@@ -468,6 +468,115 @@ else { // box.classList.contains(&#x22;rdde-up&#x22;)
   }
 }</code></pre>
 	</section>
+
+	<section>
+    <h2>Completed JavaScript</h2>
+    <p>At this point, all the code for v0.1 of responsive-diagonally-distributed-elements.js should be complete and look like this...</p>
+<pre><code>document.addEventListener(&#x22;DOMContentLoaded&#x22;, function () {
+  if (typeof window.addResizeListener !== &#x22;function&#x22; || typeof window.removeResizeListener !== &#x22;function&#x22;) {
+    console.log(&#x22;ERROR: javascript-detect-element-resize.js is required for diagonally-distributed-elements.js&#x22;);
+    console.log(&#x22;See: https://github.com/sdecima/javascript-detect-element-resize&#x22;);
+    return;
+  }
+
+  var boxes = document.getElementsByClassName(&#x22;rdde&#x22;);
+  if (boxes.length == 0) {
+    console.log(&#x22;Note: No elements with rdde class.&#x22;);
+    return;
+  }
+
+  for (let i = 0; i &#x3C; boxes.length; i++)
+    addRddeBox(boxes[i]);
+
+  function addRddeBox(box) {
+    box.style.display = &#x22;flex&#x22;;
+    box.style.flexDirection = &#x22;column&#x22;;
+    box.style.justifyContent = &#x22;space-between&#x22;;
+    // If text wraps, this keeps the diagonal alignment looking good
+    box.style.textAlign = &#x22;center&#x22;; // &#x3C;----------------------------
+
+    checkClasses(box);
+    window.addResizeListener(box, distributeElements);
+  }
+
+  function checkClasses(box) {
+    var classes = box.classList;
+
+    // Set defaults if not set.
+    if (!classes.contains(&#x22;rdde-left-basis&#x22;) &#x26;&#x26; !classes.contains(&#x22;rdde-right-basis&#x22;))
+      box.classList.add(&#x22;rdde-left-basis&#x22;);
+    if (!classes.contains(&#x22;rdde-down&#x22;) &#x26;&#x26; !classes.contains(&#x22;rdde-up&#x22;))
+      box.classList.add(&#x22;rdde-down&#x22;);
+
+    if (classes.contains(&#x22;rdde-left-basis&#x22;))
+      box.style.alignItems = &#x22;flex-start&#x22;;
+    else
+      box.style.alignItems = &#x22;flex-end&#x22;;
+  }
+
+  function distributeElements() {
+    var box = this;
+    var parts = box.children;
+    // Last child will be a div added from javascript-detect-element-resize.js.
+    // It must be ignored for this to work properly.
+    var numParts = parts.length - 1; // &#x3C;-----------
+
+    var boxCS = getComputedStyle(box);
+    var distributionWidth =    // Distribution must occur inside of any padding...
+      box.clientWidth - parseFloat(boxCS.paddingLeft) - parseFloat(boxCS.paddingRight);
+
+    var firstOffset = parts[0].clientWidth / 2;
+    var lastOffset = parts[numParts - 1].clientWidth / 2;
+
+    var innerStart = firstOffset;
+    var innerEnd = distributionWidth - lastOffset;
+
+    var innerWidth = innerEnd - innerStart;
+    var splitWidth = innerWidth / (numParts - 1);
+
+    var bBlock = !box.classList.contains(&#x22;rdde-no-block&#x22;);
+    if (box.classList.contains(&#x22;rdde-down&#x22;)) {
+      if (box.classList.contains(&#x22;rdde-left-basis&#x22;)) {
+        for (let i = 1; i &#x3C; numParts; i++) {
+          let marginLeft = splitWidth * i + firstOffset - parts[i].clientWidth / 2;
+          if (bBlock)
+            marginLeft = Math.max(0, marginLeft);
+          parts[i].style.marginLeft = marginLeft + &#x22;px&#x22;;
+        }
+      }
+      else { // box.classList.contains(&#x22;rdde-right-basis&#x22;)
+        for (let i = 0; i &#x3C; numParts - 1; i++) {
+          let iMirror = numParts - i - 1;
+          let marginRight = splitWidth * iMirror + lastOffset - parts[i].clientWidth / 2;
+          if (bBlock)
+            marginRight = Math.max(0, marginRight);
+          parts[i].style.marginRight = marginRight + &#x22;px&#x22;;
+        }
+      }
+    }
+    else { // box.classList.contains(&#x22;rdde-up&#x22;)
+      if (box.classList.contains(&#x22;rdde-left-basis&#x22;)) {
+        for (let i = 0; i &#x3C; numParts - 1; i++) {
+          let iMirror = numParts - i - 1;
+          let marginLeft = splitWidth * iMirror + lastOffset - parts[i].clientWidth / 2;
+          if (bBlock)
+            marginLeft = Math.max(0, marginLeft);
+          parts[i].style.marginLeft = marginLeft + &#x22;px&#x22;;
+        }
+      }
+      else { // box.classList.contains(&#x22;rdde-right-basis&#x22;)
+        for (let i = 1; i &#x3C; numParts; i++) {
+          let marginRight = splitWidth * i + firstOffset - parts[i].clientWidth / 2;
+          if (bBlock)
+            marginRight = Math.max(0, marginRight);
+          parts[i].style.marginRight = marginRight + &#x22;px&#x22;;
+        }
+      }
+    }
+  }
+});</code></pre>
+  </section>
+
 			<span>A</span>
 			<span>great</span>
 			<span>glorious</span>
