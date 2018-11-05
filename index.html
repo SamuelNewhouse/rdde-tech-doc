@@ -425,8 +425,49 @@ else { // box.classList.contains(&quot;rdde-up&quot;)
 	</section>
 
 	<section>
-		<h2>Testing</h2>
-		<div class="rdde example half-width">
+		<h2>rdde-up rdde-right-basis</h2>
+		<img src="images/up_right-basis.svg">
+		<p>This is just like the default option except everything is set away from the right margin instead of the left margin.</p>
+<pre><code>var bBlock = !box.classList.contains(&#x22;rdde-no-block&#x22;);
+if (box.classList.contains(&#x22;rdde-down&#x22;)) {
+  if (box.classList.contains(&#x22;rdde-left-basis&#x22;)) {
+    for (let i = 1; i &#x3C; numParts; i++) {
+      let marginLeft = splitWidth * i + firstOffset - parts[i].clientWidth / 2;
+      if (bBlock)
+        marginLeft = Math.max(0, marginLeft);
+      parts[i].style.marginLeft = marginLeft + &#x22;px&#x22;;
+    }
+  }
+  else { // box.classList.contains(&#x22;rdde-right-basis&#x22;)
+    for (let i = 0; i &#x3C; numParts - 1; i++) {
+      let iMirror = numParts - i - 1;
+      let marginRight = splitWidth * iMirror + lastOffset - parts[i].clientWidth / 2;
+      if (bBlock)
+        marginRight = Math.max(0, marginRight);
+      parts[i].style.marginRight = marginRight + &#x22;px&#x22;;
+    }
+  }
+}
+else { // box.classList.contains(&#x22;rdde-up&#x22;)
+  if (box.classList.contains(&#x22;rdde-left-basis&#x22;)) {
+    for (let i = 0; i &#x3C; numParts - 1; i++) {
+      let iMirror = numParts - i - 1;
+      let marginLeft = splitWidth * iMirror + lastOffset - parts[i].clientWidth / 2;
+      if (bBlock)
+        marginLeft = Math.max(0, marginLeft);
+      parts[i].style.marginLeft = marginLeft + &#x22;px&#x22;;
+    }
+  }
+  else { // box.classList.contains(&#x22;rdde-right-basis&#x22;)
+    for (let i = 1; i &#x3C; numParts; i++) {
+      let marginRight = splitWidth * i + firstOffset - parts[i].clientWidth / 2;
+      if (bBlock)
+        marginRight = Math.max(0, marginRight);
+      parts[i].style.marginRight = marginRight + &#x22;px&#x22;;
+    }
+  }
+}</code></pre>
+	</section>
 			<span>A</span>
 			<span>great</span>
 			<span>glorious</span>
