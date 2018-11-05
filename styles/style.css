@@ -9,6 +9,10 @@ header, section, footer {
 h2, h3 {
     color: #a55;
 }
+h3 {
+    text-align: center;
+    color: #5a5;
+}
 
 section {
     padding: 0 4px;
