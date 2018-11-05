@@ -2,7 +2,7 @@
  * Responsive Diagonally Distributed Elements
  * ----------------------------------------------------------------------------------------------
  * Responsively aligns the centers of inner elements on a diagonal line going from the center of
- * the first element to the center of the last element. An outer element must be specified to
+ * the first element to the center of the last element. An outer element is used to
  * determine the left-most and right-most positions. When set to align diagonally down, the first
  * element is placed far left and the last element is placed far right. The reverse is true when
  * set to align diagonally up. Inner elements may also be blocked from going past a chosen margin
@@ -12,7 +12,7 @@
  * Requires javascript-detect-element-resize.js
  * https://github.com/sdecima/javascript-detect-element-resize
  *
- *  Options (set as classes on a container element)
+ * Options (set as classes on a outer element)
  * ----------------------------------------------------------------------------------------------
  * **rdde** *(required):*             sets up an outer element as the container box
  *
