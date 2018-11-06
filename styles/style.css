@@ -45,13 +45,23 @@ img {
     max-width: 30px;
 }
 
-.scrunched {
-    border: 1px solid #aaa;
+.blocking-cases {
+    border: 2px solid #aaa;
     padding: 10px;
     margin: auto;
+    background-color: #eee;
+    animation: pulse-blocking-cases 1.2s ease-in-out infinite alternate;
 }
 
-.scrunched > span {
+@keyframes pulse-blocking-cases {
+    0% {    border-color: #00f;
+            background-color: #fff;}
+    100% {  border-color: #000;
+            background-color: #ddd;}
+}
+
+.blocking-cases > span {
+    background: #fff;
     border: 1px solid red;
     padding: 5px;
 }
@@ -80,24 +90,19 @@ img {
     animation: pulse-width-100-0 2s ease-in-out infinite alternate;
 }
 
+.size-toggle {
+    width: 50%;
+    transition: width 1.7s ease-in-out;
+}
+
 .size-toggle-expand {
-    animation: expand-to-50 1.2s linear forwards;
+    width: 50%;    
 }
 .size-toggle-shrink {
-    animation: shrink-to-0 1.2s linear forwards;
+    width: 0%;    
 }
 
 @keyframes pulse-width-100-0{
     0% {width: 100%;}
-    100% {width: 0%;}
-}
-
-@keyframes expand-to-50 {
-    0% {width:0%;}
-    100% {width: 50%;}
-}
-
-@keyframes shrink-to-0 {
-    0% {width: 50%;}
     100% {width: 0%;}
 }
