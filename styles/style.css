@@ -23,7 +23,14 @@ nav a {
     margin-top: 7px;
 }
 
+a {
+    text-decoration: none;
+    color: #1b1ba1;
 }
+a:hover {
+    color: #1ba143
+}
+
 h2, h3 {
     color: #a55;
 }
