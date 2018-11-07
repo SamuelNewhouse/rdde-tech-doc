@@ -19,4 +19,29 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     }
+
+    function closeNavbar() {
+        document.getElementById("navbar").classList.add("closed");        
+    }
+    function openNavbar() {
+        document.getElementById("navbar").classList.remove("closed");        
+    }
+
+    var lastSize = 99999;
+    function checkSize() {
+        let curSize = parseFloat(window.innerWidth);
+        
+        if (curSize < lastSize && curSize <= 900)
+            document.getElementById("navbar").classList.add("closed");
+        else if (curSize > lastSize && curSize >= 900)
+            document.getElementById("navbar").classList.remove("closed");
+
+        lastSize = curSize;
+    }
+
+    document.getElementById("close-navbar").addEventListener("click", closeNavbar);
+    document.getElementById("open-navbar").addEventListener("click", openNavbar);
+    window.addEventListener("resize", checkSize);
+
+    checkSize();
 });
