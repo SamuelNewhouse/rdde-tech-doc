@@ -110,7 +110,7 @@ img {
     width: 0%;    
 }
 
-#navbar {
+#navbar { 
     overflow: scroll;
     height: 100%;
     width: 300px;
@@ -127,7 +127,7 @@ img {
 
 #navbar.closed, #close-navbar.closed {
     left: -330px;
-}
+} 
 
 #close-navbar {
     display: none;
@@ -161,10 +161,11 @@ img {
     z-index: 1;
 }
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 1000px) {
     main {        
         margin-left: 0;
     }
+
     #close-navbar {
         display: block;
     }
