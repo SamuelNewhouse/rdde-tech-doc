@@ -147,6 +147,12 @@ img {
     border-radius: 6px;
     transition: left .5s;
 }
+
+#close-navbar:hover {
+    background: #dcdda0;
+    border: 2px outset #555;
+}
+
 #open-navbar {
     position: fixed;
     display: inline-block;
@@ -159,6 +165,11 @@ img {
     border: 2px inset #000;
     border-radius: 6px;
     z-index: 1;
+}
+
+#open-navbar:hover {
+    background: #a0aedd;
+    border: 2px outset #555;
 }
 
 @media only screen and (max-width: 1000px) {
