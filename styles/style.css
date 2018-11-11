@@ -3,15 +3,15 @@ html {
     font-size: 110%;
 }
 
-main { 
+main {
     margin-left: 320px;
-    max-width: 1200px;    
+    max-width: 1200px;
 }
 
 section, footer {
     margin: 25px auto;
     padding: 0 4px;
-    border-top: 2px solid black;    
+    border-top: 2px solid black;
 }
 
 nav > a {
@@ -104,13 +104,13 @@ img {
 }
 
 .size-toggle-expand {
-    width: 50%;    
+    width: 50%;
 }
 .size-toggle-shrink {
-    width: 0%;    
+    width: 0%;
 }
 
-#navbar { 
+#navbar {
     overflow: scroll;
     height: 100%;
     width: 300px;
@@ -127,11 +127,11 @@ img {
 
 #navbar.closed, #close-navbar.closed {
     left: -330px;
-} 
+}
 
 #close-navbar {
     display: none;
-    cursor: pointer;    
+    cursor: pointer;
     text-align: center;
     position: fixed;
     font-size: 19px;
@@ -140,7 +140,7 @@ img {
     top: 3px;
     left: 270px;
     width: 22px;
-    height: 22px;    
+    height: 22px;
     background: #d77;
     color: #000;
     border: 2px inset #000;
@@ -156,7 +156,7 @@ img {
 #open-navbar {
     position: fixed;
     display: inline-block;
-    cursor: pointer;        
+    cursor: pointer;
     text-align: center;
     background: #7d7;
     top: 0;
@@ -172,8 +172,18 @@ img {
     border: 2px outset #555;
 }
 
+.nav-link {
+    transition: padding 0.5s;
+}
+
+.navbar-focus {
+    padding-left: 5px;
+    text-decoration: underline;
+    font-weight: 700;
+}
+
 @media only screen and (max-width: 1000px) {
-    main {        
+    main {
         margin-left: 0;
     }
 
