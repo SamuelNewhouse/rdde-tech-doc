@@ -29,16 +29,17 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("close-navbar").classList.remove("closed");
     }
 
-    var lastSize = 99999;
+
+    var lastWinWidth = 99999;
     function checkSize() {
         let curSize = parseFloat(window.innerWidth);
 
-        if (curSize < lastSize && curSize <= 1000)
+        if (curSize < lastWinWidth && curSize <= 1000)
             closeNavbar();
-        else if (curSize > lastSize && curSize >= 1000)
+        else if (curSize > lastWinWidth && curSize >= 1000)
             openNavbar();
 
-        lastSize = curSize;
+        lastWinWidth = curSize;
     }
 
     document.getElementById("close-navbar").addEventListener("click", closeNavbar);
