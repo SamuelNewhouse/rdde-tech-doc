@@ -98,16 +98,16 @@
 		<p>Here is a diagram with the first three of those considerations put into relationship with each other.</p>
 		<img src="images/horizontal-positioning.png">
 		<ol>
-			<li>box.clientWidth = Width of outer container element</li>
-			<li>innerWidth = Horizontal size of the distribution diagonal</li>
-			<li>numParts = Number of inner elements</li>
+			<li><strong>box.clientWidth</strong> = Width of outer container element</li>
+			<li><strong>innerWidth</strong> = Horizontal size of the distribution diagonal</li>
+			<li><strong>numParts</strong> = Number of inner elements</li>
 		</ol>
-		<p>box.clientWidth is necessary for calculating innerWidth. Despite the diagram's appearance, the inner elements are not automatically spaced apart so that the last element's center falls in its proper place. Instead, we have to calculate innerStart, innerEnd and innerWidth by doing the following...</p>
+		<p><strong>box.clientWidth</strong> is necessary for calculating <strong>innerWidth</strong>. Despite the diagram's appearance, the inner elements are not automatically spaced apart so that the last element's center falls in its proper place. Instead, we have to calculate <strong>innerStart</strong>, <strong>innerEnd</strong> and <strong>innerWidth</strong> by doing the following...</p>
 <pre><code>// parts is an array of all the inner elements.
 innerStart = parts[0].clientWidth / 2;
 innerEnd = box.clientWidth - (parts[numParts - 1].clientWidth / 2);
 innerWidth = innerEnd - innerStart;</code></pre>
-		<p>With innerWidth and numParts known, it's possible to calculate the horizontal spacing between element centers. This is the splitWidth and can be calculated by dividing innerWidth by one less than numParts.</p>
+		<p>With <strong>innerWidth</strong> and <strong>numParts</strong> known, it's possible to calculate the horizontal spacing between element centers. This is the <strong>splitWidth</strong> and can be calculated by dividing <strong>innerWidth</strong> by one less than <strong>numParts</strong>.</p>
 <pre><code>splitWidth = innerWidth / (numParts - 1);</code></pre>
 	</section>
 
