@@ -363,8 +363,8 @@ for (let i = 1; i &#x3C; numParts; i++) {
   var splitWidth = innerWidth / (numParts - 1);
   ...
 </code></pre>
-		<p>It's a fairly simple change. The computed style of the RDDE box is placed in the variable <strong>boxCS</strong>. Then new variable called <strong>distributionWidth</strong> is added to store the width between left and right padding. <strong>distributionWidth</strong> is then used to calculate an <strong>innerEnd</strong> suitable for the padding. Although the code for assigning <strong>splitWidth</strong> is unchanged, it's influenced by <strong>innerWidth</strong> which is influenced by <strong>innerEnd</strong>, meaning the change propogates correctly through the code.</p>
-		<p>From this point forward, keep in mind that this change properly handles padding. To avoid clutter, it's not explicitly shown in any diagrams, but imagining any padding to exist outside the diagrams is conceptually accurate.</p>
+		<p>It's a fairly simple change. The computed style of the RDDE box is placed in the variable boxCS. Then a new variable called distributionWidth is added to store the width between left and right padding. distributionWidth is then used to calculate an innerEnd suitable for the padding. Although the code for assigning splitWidth is unchanged, it's influenced by innerWidth which is influenced by innerEnd, meaning the change propagates correctly through the code.</p>
+		<p>From this point forward, keep in mind that this change properly handles RDDE padding. To avoid clutter, it's not explicitly shown in any diagrams, but imagining any padding to exist outside the diagrams is conceptually accurate.</p>
 	</section>
 
 	<section id="rdde-down_rdde-left-basis" class="main-section">
