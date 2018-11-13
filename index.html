@@ -159,7 +159,7 @@ for (let i = 1; i &lt; numParts; i++) {
 			<span>blocking</span>
 			<span>here.</span>
 		</div>
-		<p>One possible issue with this method is that elements can receive negative margins if the container element becomes small enough. This is especially a problem if some elements are much larger than others. It many cases, it would probably be better to have elements stop at zero left margin rather than go past that into the negatives. Luckily, this is fixed with a simple addition to the for loop...</p>
+		<p>One possible issue with this method is that elements can receive negative margins if the container element becomes small enough. This is especially a problem if some elements are much larger than others. It many cases, it's better for elements to stop at zero left margin rather than go past that into the negatives. Luckily, this is fixed with a simple addition to the for loop...</p>
 <pre><code>for (let i = 1; i &lt; numParts; i++) {
   let marginLeft = splitWidth * i + firstOffset - parts[i].clientWidth / 2;
   marginLeft = Math.max(0, marginLeft);
