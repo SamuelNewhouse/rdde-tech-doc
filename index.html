@@ -332,9 +332,9 @@ for (let i = 1; i &#x3C; numParts; i++) {
 }</code></pre>
 	<p>Most of these lines of code have been covered before, but there are a few new twists...</p>
 <pre><code>var box = this;</code></pre>
-	<p><strong>this</strong> is set to the element being resized when <strong>distributeElements</strong> is called from javascript-detect-element-resize.js.</p>
+	<p><strong>this</strong> is set to the element being resized when <strong>distributeElements</strong> is called from <strong>javascript-detect-element-resize.js</strong>.</p>
 <pre><code>var numParts = parts.length - 1;</code></pre>
-	<p>javascript-detect-element-resize.js adds a div to the end of the container element. It must be ignored.</p>
+	<p><strong>javascript-detect-element-resize.js</strong> adds a div to the end of the container element. It must be ignored.</p>
 	<p>The <strong>if</strong> statements are a bit messy. But essentially, there are four combinations of settings, each requiring a different method for calculating the margins.</p>
 	<p>This code is now ready to work for the default configuration, if there is no padding on the container element. The next section will show how to modify the code to allow for padding.</p>
 	</section>
