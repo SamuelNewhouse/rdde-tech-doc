@@ -379,7 +379,7 @@ for (let i = 1; i &#x3C; numParts; i++) {
 		<p></p>
 		<img src="images/down_right-basis.png">
 		<p>The first thing to notice here is that <strong>align-items</strong> is set to <strong>flex-end</strong>. This allows the right margin to be used for distributing the inner elements. There is also a new variable called <strong>iMirror</strong>. This gets the mirror index of the current index for the parts array so <strong>splitWidth</strong> can be multiplied by the proper amount. <strong>lastOffset</strong> is also being used in this situation instead of <strong>firstOffset</strong>. Starting from the right margin requires this.</p>
-		<p>Incorporating this into the existing JavaScript code is done in the main if statement in <strong>distributeElements</strong> function...</p>
+		<p>Incorporating this into the existing JavaScript code is done in the main <strong>if</strong> statement in <strong>distributeElements</strong> function...</p>
 <pre><code>if (box.classList.contains(&quot;rdde-down&quot;)) {
   if (box.classList.contains(&quot;rdde-left-basis&quot;)) {
     for (let i = 1; i &lt; numParts; i++) {
@@ -405,7 +405,7 @@ else { // box.classList.contains(&quot;rdde-up&quot;)
     else { // box.classList.contains(&quot;rdde-right-basis&quot;)
     }
 }</code></pre>
-		<p>There's another mirror (of a kind) here in addition to <strong>iMirror</strong>. The index counter for <strong>rdde-left-basis</strong> + <strong>rdde-down</strong> starts at 1 because the 0 index can be ignored. Similarly, the last index can be ignored in the case of <strong>rdde-right-basis</strong> + <strong>rdde-down</strong>. The last index is going always going to set far right, so there's no need to calculate the <strong>rightMargin</strong> for it.</p>
+		<p>There's another mirror (of a kind) here in addition to iMirror. The index counter for rdde-left-basis + rdde-down starts at 1 because the 0 index can be ignored. Similarly, the last index can be ignored in the case of rdde-right-basis + rdde-down. The last index is always going to result in a zero <strong>rightMargin</strong>, so there's no need to waste time calculating it and setting it since <strong>align-items="flex-end"</strong>.</p>
 	</section>
 
 	<section id="rdde-up_rdde-left-basis" class="main-section">
