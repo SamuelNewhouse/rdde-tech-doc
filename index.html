@@ -113,15 +113,15 @@ innerWidth = innerEnd - innerStart;</code></pre>
 
 	<section id="Calculating_the_Margins" class="main-section">
 		<header><h2>Calculating the Margins</h2></header>
-		<p>Now look at how to use splitWidth with individual element widths to set the left margins...</p>
+		<p>Now look at how to use <strong>splitWidth</strong> with individual element widths to set the left margins...</p>
 		<img src="images/horizontal-positioning2.png">
 		<p>There are several things added here that need explanation...</p>
-		<p><strong>firstOffset:</strong> It's exactly the same value as innerStart. That may seem pointless, but it's to make explicit a meaningful contrast between itself and lastOffset.</p>
-		<p><strong>lastOffset:</strong> NOT the same value as innerEnd. innerEnd is the distance from the left margin to where the horizontal center of the last element will be. lastOffset is half the width of the last element while firstOffset is half the width of the first element. This becomes more important in future examples.</p>
-		<p><strong>align-items="flex-start":</strong> This is critical. Since the outer container is a flex box, the default alignment is "stretch". Using that default alignment would prevent properly using left margins as a method for aligning items diagonally. By setting the alignment to flex-start, all the items will line up on the left side of the outer container. Then, the left margins of each element can be set to push them away from the left side as needed.</p>
-		<p>Now on to the marginLeft calculations...</p>
-		<p><strong>splitWidth * i:</strong> One splitWidth worth of distance needs to be added for each inner element, so multiplying by an index counter works well here.</p>
-		<p><strong>+ firstOffset:</strong> Adding firstOffset pushes each use of splitWidth over so the splitWidth distribution starts where it's supposed to (center of the first element).</p>
+		<p><strong>firstOffset:</strong> It's exactly the same value as <strong>innerStart</strong>. That may seem pointless, but it's to make explicit a meaningful contrast between itself and <strong>lastOffset</strong>.</p>
+		<p><strong>lastOffset:</strong> NOT the same value as <strong>innerEnd</strong>. <strong>innerEnd</strong> is the distance from the left margin to where the horizontal center of the last element will be. <strong>lastOffset</strong> is half the width of the last element while <strong>firstOffset</strong> is half the width of the first element. This becomes more important in future examples.</p>
+		<p><strong>align-items="flex-start":</strong> This is critical. Since the outer container is a flex box, the default alignment is "stretch". Using that default alignment would prevent properly using left margins as a method for aligning items diagonally. By setting the alignment to flex-start, all the inner elements will line up on the left side of the outer container. Then, the left margin of every element can be set to push them away from the left side as needed.</p>
+		<p>Now on to the <strong>marginLeft</strong> calculations...</p>
+		<p><strong>splitWidth * i:</strong> One <strong>splitWidth</strong> worth of distance needs to be added for each inner element, so multiplying by an index counter works well here.</p>
+		<p><strong>+ firstOffset:</strong> Adding <strong>firstOffset</strong> pushes each use of <strong>splitWidth</strong> over so the <strong>splitWidth</strong> distribution starts where it's supposed to (center of the first element).</p>
 		<p><strong>- parts[i].clientWidth / 2:</strong> This is where each individual element width is taken into account. Even if the elements are different widths, this maintains every element's center position on the distribution diagonal.</p>
 		<p>In summary, the equivalent JavaScript so far would be...</p>
 <pre><code>// box is the container element for the parts
