@@ -31,6 +31,10 @@ a:hover {
     color: #1ba143
 }
 
+h1 {
+    font-size: 1.45em
+}
+
 h2, h3 {
     color: #a55;
 }
@@ -147,14 +151,14 @@ img {
     height: 22px;
     background: #d77;
     color: #000;
-    border: 2px inset #000;
+    border: 2px outset #000;
     border-radius: 6px;
     transition: left .5s;
 }
 
 #close-navbar:hover {
     background: #dcdda0;
-    border: 2px outset #555;
+    border: 2px inset #555;
 }
 
 #open-navbar {
@@ -166,14 +170,14 @@ img {
     top: 0;
     width: 170px;
     padding: 2px 6px;
-    border: 2px inset #000;
+    border: 2px outset #000;
     border-radius: 6px;
     z-index: 1;
 }
 
 #open-navbar:hover {
     background: #a0aedd;
-    border: 2px outset #555;
+    border: 2px inset #555;
 }
 
 .nav-link {
