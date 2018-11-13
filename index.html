@@ -76,7 +76,7 @@
 	<section id="The_Basic_Concept" class="main-section">
 		<header><h2>The Basic Concept</h2></header>
 		<p>The most basic situation to consider is aligning a set of elements on a downhill diagonal starting from the left margin.</p>
-		<img src="images/basic-plan.png">
+		<img alt="Basic Plan" src="images/basic-plan.png">
 		<p>The inner element centers are spaced equidistant horizontally and the center of each element is on the distribution diagonal. The distribution diagonal is more of a conceptual aid than something fully calculated. Only the horizontal starting and ending point of the diagonal, relative to the left margin, are needed to begin with. These are determined by setting the starting horizontal position to the horizontal center of the first element and the ending horizontal position to the horizontal center of the last element. This will create a smoother and more consistent diagonal alignment that simply going from corner to corner of the container element.</p>
 		<p>There is no need to worry about the height of the container element or the heights of the inner elements. Flexbox is used to distribute the elements vertically by using flex-direction: column and justify-content: space-between. This effectively automates the slope of the diagonal without having to do any additional JavaScript operations. However, it's important to note that having inner elements with varying heights will throw off the diagonal alignment. Leveraging flexbox to reduce JavaScript usage requires each element to be on it's own line due to <strong>flex-direction:column</strong>.</p>
 	</section>
@@ -96,7 +96,7 @@
 			<li>Width of the individual element being aligned</li>
 		</ol>
 		<p>Here is a diagram with the first three of those considerations put into relationship with each other.</p>
-		<img src="images/horizontal-positioning.png">
+		<img alt="Horizontal Positioning 1" src="images/horizontal-positioning.png">
 		<ol>
 			<li><strong>box.clientWidth</strong> = Width of outer container element</li>
 			<li><strong>innerWidth</strong> = Horizontal size of the distribution diagonal</li>
@@ -114,7 +114,7 @@ innerWidth = innerEnd - innerStart;</code></pre>
 	<section id="Calculating_the_Margins" class="main-section">
 		<header><h2>Calculating the Margins</h2></header>
 		<p>Now look at how to use <strong>splitWidth</strong> with individual element widths to set the left margins...</p>
-		<img src="images/horizontal-positioning2.png">
+		<img alt="Horizontal Positioning 2" src="images/horizontal-positioning2.png">
 		<p>There are several things added here that need explanation...</p>
 		<p><strong>firstOffset:</strong> It's exactly the same value as <strong>innerStart</strong>. That may seem pointless, but it's to make explicit a meaningful contrast between itself and <strong>lastOffset</strong>.</p>
 		<p><strong>lastOffset:</strong> NOT the same value as <strong>innerEnd</strong>. <strong>innerEnd</strong> is the distance from the left margin to where the horizontal center of the last element will be. <strong>lastOffset</strong> is half the width of the last element while <strong>firstOffset</strong> is half the width of the first element. This becomes more important in future examples.</p>
@@ -370,14 +370,14 @@ for (let i = 1; i &#x3C; numParts; i++) {
 	<section id="rdde-down_rdde-left-basis" class="main-section">
 		<header><h2>rdde-down rdde-left-basis</h2></header>
 		<p>This is what has already been covered as the basic starting point. It's the default to be used if no direction or basis is provided.</p>
-		<img src="images/down_left-basis.png">
+		<img alt="rdde-down rdde-left-basis" src="images/down_left-basis.png">
 		<p>There's is nothing to add here in terms of code or explanation. It's here more for convenience so all four options are laid out in sequence for comparison.</p>
 	</section>
 
 	<section id="rdde-down_rdde-right-basis" class="main-section">
 		<header><h2>rdde-down rdde-right-basis</h2></header>
 		<p></p>
-		<img src="images/down_right-basis.png">
+		<img alt="rdde-down rdde-right-basis" src="images/down_right-basis.png">
 		<p>The first thing to notice here is that <strong>align-items</strong> is set to <strong>flex-end</strong>. This allows the right margin to be used for distributing the inner elements. There is also a new variable called <strong>iMirror</strong>. This gets the mirror index of the current index for the parts array so <strong>splitWidth</strong> can be multiplied by the proper amount. <strong>lastOffset</strong> is also being used in this situation instead of <strong>firstOffset</strong>. Starting from the right margin requires this.</p>
 		<p>Incorporating this into the existing JavaScript code is done in the main <strong>if</strong> statement in <strong>distributeElements</strong> function...</p>
 <pre><code>if (box.classList.contains(&quot;rdde-down&quot;)) {
@@ -410,7 +410,7 @@ else { // box.classList.contains(&quot;rdde-up&quot;)
 
 	<section id="rdde-up_rdde-left-basis" class="main-section">
 		<header><h2>rdde-up rdde-left-basis</h2></header>
-		<img src="images/up_left-basis.png">
+		<img alt="rdde-up rdde-left-basis" src="images/up_left-basis.png">
 		<p>In this diagram, the first element (<strong>i=0</strong>) is on the right instead of the left. This points to an important philosophical choice to be made for uphill diagonals. It might be argued that the order of elements should be automatically reversed in the RDDE code since a long uphill diagonal will be naturally read from left to right. That means not reversing the order could lead to confusion in some cases as the bottom element will probably be looked at first instead of the top element.</p>
 		<p>However, automatically reversing the order could also lead to confusion. As the diagonal shrinks and gets closer to vertical alignment, the more natural it becomes to read from top to bottom instead of left to right. This leaves the natural reading order ambiguous in many cases, and completely unknown from the perspective of trying to develop for all possible scenarios. The decision for RDDE is to leave the vertical order intact as it sits in the HTML. It's up to the developer to place the elements in the order they see fit.</p>
 		<p>For the code, just keep filling out the <strong>if-else</strong> statements to match the diagrams...</p>
@@ -451,7 +451,7 @@ else { // box.classList.contains(&quot;rdde-up&quot;)
 
 	<section id="rdde-up_rdde-right-basis" class="main-section">
 		<header><h2>rdde-up rdde-right-basis</h2></header>
-		<img src="images/up_right-basis.png">
+		<img alt="rdde-up rdde-right-basis" src="images/up_right-basis.png">
 		<p>This is just like the default option except everything is set away from the right margin instead of the left margin.</p>
 <pre><code>var bBlock = !box.classList.contains(&#x22;rdde-no-block&#x22;);
 if (box.classList.contains(&#x22;rdde-down&#x22;)) {
