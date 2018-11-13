@@ -57,21 +57,19 @@
 			</div>
 		</div>
 		<div>
-			<p>This document explains how to implement responsive diagonally distributed elements (RDDE) using JavaScript.
-				To simplify things, <a href="https://github.com/sdecima/javascript-detect-element-resize" target="_blank">JavaScript Detect Element Resize</a>
-				by <a href="https://github.com/sdecima" target="_blank">Sebastian Decima</a> will be used to detect any resize on elements containing elements to be distributed. After finishing,
-				you will have a replica of <a href="https://github.com/SamuelNewhouse/responsive-diagonally-distributed-elements" target="_blank">Responsive Diagonally Distributed Elements</a> by <a href="https://github.com/SamuelNewhouse" target="_blank">Samuel Newhouse</a> created from the ground-up
-				with an understanding of how it works.</p>
-			<p>This implementation relies on setting class names on a container element containing the elements to be
-				diagonally distributed. The class names will set the rules for:</p>
+			<p>This document explains how to implement responsive diagonally distributed elements (RDDE) using JavaScript. To simplify things,
+        <a href="https://github.com/sdecima/javascript-detect-element-resize" target="_blank">JavaScript Detect Element Resize</a>
+        by <a href="https://github.com/sdecima" target="_blank">Sebastian Decima</a>
+        is used to detect resizes and make the code fully responsive. After finishing, you will have a replica of v0.1 of
+        <a href="https://github.com/SamuelNewhouse/responsive-diagonally-distributed-elements" target="_blank">Responsive Diagonally Distributed Elements</a> by <a href="https://github.com/SamuelNewhouse" target="_blank">Samuel Newhouse</a>,
+        created from the ground-up, with an understanding of how it works.</p>
+			<p>This implementation relies on setting class names on a dedicated container element. The classes used and the size of the container element determine how its inner elements will be distributed. The class names will set the rules for:</p>
 				<ol>
 					<li>The angle of distribution (diagonally down or up)</li>
 					<li>The basis for alignment (left or right margin)</li>
 					<li>Blocking or not blocking elements from crossing the basis margin.</li>
 				</ol>
-			<p>More options could be added to increase sophistication, but these three offer a solid starting point for understanding
-				some of the complicating factors to consider when trying to create RDDE.
-			</p>
+			<p>More options could be added to increase sophistication, but these three offer a solid starting point for understanding some of the complicating factors to consider when trying to create RDDE.</p>
 		</div>
 	</section>
 
