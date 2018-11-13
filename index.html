@@ -212,7 +212,7 @@ for (let i = 1; i &#x3C; numParts; i++) {
   &lt;script src=&quot;scripts/javascript-detect-element-resize.js&quot;&gt;&lt;/script&gt;
   &lt;script src=&quot;scripts/responsive-diagonally-distributed-elements.js&quot;&gt;&lt;/script&gt;
 &lt;/body&gt;</code></pre>
- <p>Additionally, the RDDE code needs to wait for the DOM content to be loaded before doing anything. To ensure all of this is done correctly, the following code waits for DOM content to finish loading, checks for the existence of javascript-detect-element-resize.js, and provides an error message and a suggested link if something is wrong.</p>
+ <p>Additionally, the RDDE code needs to wait for the DOM content to be loaded before doing anything. To ensure all of this is done correctly, the following code waits for DOM content to finish loading, checks for the existence of <strong>javascript-detect-element-resize.js</strong>, and provides an error message and a suggested link if something is wrong.</p>
 <pre><code>document.addEventListener(&quot;DOMContentLoaded&quot;, function () {
   if (typeof window.addResizeListener !== &quot;function&quot; || typeof window.removeResizeListener !== &quot;function&quot;) {
     console.log(&quot;ERROR: javascript-detect-element-resize.js is required for diagonally-distributed-elements.js&quot;);
@@ -221,7 +221,7 @@ for (let i = 1; i &#x3C; numParts; i++) {
   }
 });</code></pre>
 
-		<p>javascript-detect-element-resize.js adds the functions <strong>addResizeListener</strong> and <strong>removeResizeListener</strong> to the window object. If those functions don't exist on the window object, it's safe to assume javascript-detect-element-resize.js isn't loaded. After that consideration, it's time to see if any elements actually have the <strong>rdde</strong> class assigned to them...</p>
+		<p><strong>javascript-detect-element-resize.js</strong> adds the functions <strong>addResizeListener</strong> and <strong>removeResizeListener</strong> to the window object. If those functions don't exist on the window object, it's safe to assume <strong>javascript-detect-element-resize.js</strong> isn't loaded. After that consideration, it's time to see if any elements actually have the <strong>rdde</strong> class assigned to them...</p>
 <pre><code>document.addEventListener(&#x22;DOMContentLoaded&#x22;, function () {
   if (typeof window.addResizeListener !== &#x22;function&#x22; || typeof window.removeResizeListener !== &#x22;function&#x22;) {
     console.log(&#x22;ERROR: javascript-detect-element-resize.js is required for diagonally-distributed-elements.js&#x22;);
